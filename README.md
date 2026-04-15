@@ -1,6 +1,6 @@
-# DesireX — Electronic Press Kit
+# Desire X — Electronic Press Kit
 
-Modern metal EPK site. Vite + React + TypeScript + Tailwind CSS.
+Alt rock EPK site for Desire X (Bristol, UK). Vite + React + TypeScript + Tailwind CSS.
 
 ---
 
@@ -23,63 +23,50 @@ npm run preview    # preview the built site locally
 
 ---
 
-## What to swap before going live
+## What to update before going live
 
 ### 1. Biography copy
 **File:** `src/components/About.tsx`
-Find the three `<p>` blocks under `{/* TODO: Replace the bio */}` and replace with the real biography.
+Replace the three placeholder `<p>` blocks with the full artist biography.
 
-### 2. Stats (Monthly listeners, YouTube subs, tracks)
+### 2. Stats
 **File:** `src/components/About.tsx`
-Update the `value` fields in the stats array at the bottom of the component.
+The stats row currently shows sourced values (7.1K listeners, 1.1K Instagram). Update as numbers grow.
 
-### 3. Hero tagline
+### 3. Hero background image
 **File:** `src/components/Hero.tsx`
-Replace `"Modern Metal · Intense Energy · Raw Emotion"` with the real tagline.
+The artist photo from Spotify is used as the hero background at low opacity. To replace with a dedicated full-width shot, swap the `<img src="/assets/artist-photo.jpg" ...>` for a new file at `/public/assets/hero-bg.jpg` and update the `src` attribute.
 
-### 4. Hero background image
-**File:** `src/components/Hero.tsx`
-Uncomment the `<img>` tag and put the image at `/public/assets/hero-bg.jpg`.
-Recommended: landscape, dark-toned photo, min 1920×1080.
-
-### 5. Artist photo (About section)
+### 4. Artist photo (About section)
 **File:** `src/components/About.tsx`
-Replace the placeholder `<div>` with:
-```tsx
-<img src="/assets/artist-photo.jpg" alt="DesireX" className="w-full aspect-[3/4] object-cover" />
-```
-Put the file at `/public/assets/artist-photo.jpg`. Portrait orientation, 3:4 ratio works best.
+Currently using `/assets/artist-photo.jpg` (the Spotify press image). Replace with a higher-res or different photo by swapping the file at `/public/assets/artist-photo.jpg`.
 
-### 6. Music — track list
-**File:** `src/components/Music.tsx`
-Update the `tracks` array with real track names and Spotify track IDs (from URL: `open.spotify.com/track/TRACK_ID`).
-
-### 7. Videos — YouTube IDs
+### 5. Videos — YouTube IDs
 **File:** `src/components/Video.tsx`
-Update the `videoId` fields in the `videos` array. Get the ID from: `youtube.com/watch?v=VIDEO_ID`.
+Set the `videoId` fields in the `videos` array. Get the ID from: `youtube.com/watch?v=VIDEO_ID`.
 
-### 8. Press quotes
+### 6. Press quotes
 **File:** `src/components/Press.tsx`
-Replace the placeholder quotes with real press mentions. Add the source URL if available.
+Replace the placeholder quotes with real press mentions. Set `url` to the source article if available.
 
-### 9. Press photos
+### 7. Press photos
 **File:** `src/components/Press.tsx`
 Add filenames to the `photos` array (e.g. `['photo1.jpg', 'photo2.jpg']`).
 Put the files at `/public/assets/press/`.
 
-### 10. Show dates
+### 8. Show dates
 **File:** `src/components/Shows.tsx`
-Replace or extend the `dates` array. Set `ticketUrl` when tickets are live, `status: 'sold-out'` when sold out.
+The Fleece (Bristol, 18 Jul) is already listed. Add `ticketUrl` when tickets go live, or add more dates to the `dates` array.
 
-### 11. Contact emails ⚠️ PLACEHOLDER — must update before going live
+### 9. Contact emails ⚠️ PLACEHOLDER — must update before going live
 **File:** `src/components/Contact.tsx`
 Replace `BOOKING_EMAIL` (`booking@desirex.com`) and `PRESS_EMAIL` (`press@desirex.com`) with real addresses.
 These are placeholder values — the form will not reach anyone until updated.
 The form generates a `mailto:` link on submit — swap to Formspree/EmailJS for server-side delivery if preferred.
 
-### 12. Page meta / OG image
+### 10. Page OG image
 **File:** `index.html`
-Add `<meta property="og:image" content="/assets/og-image.jpg" />` once you have a share image.
+Add `<meta property="og:image" content="/assets/og-image.jpg" />` once you have a share image (used for link previews on social).
 
 ---
 
@@ -91,18 +78,19 @@ src/
     Nav.tsx         sticky top nav, mobile hamburger
     Hero.tsx        full-screen landing with CTAs
     About.tsx       bio + artist photo + stats
-    Music.tsx       Spotify embed + track list
-    Video.tsx       YouTube embeds
+    Music.tsx       Spotify embed + 5 real tracks
+    Video.tsx       YouTube embeds (IDs needed)
     Press.tsx       press quotes + photo gallery
     Shows.tsx       tour dates + booking CTA
     Contact.tsx     social links + inquiry form
     Footer.tsx      logo, nav links, social icons
-  index.css         Tailwind base + global styles (fonts, scrollbar, noise)
+  index.css         Tailwind base + global styles
   App.tsx           top-level layout
 
 public/
-  assets/           put all images here
-    press/          press photos subfolder
+  assets/
+    artist-photo.jpg   Spotify press image (in use)
+    press/             add press photos here
 ```
 
 ---

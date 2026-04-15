@@ -6,7 +6,7 @@
 
 const quotes = [
   {
-    text: '"DesireX delivers a sound that is simultaneously crushing and atmospheric — a force in modern metal."',
+    text: '"Desire X delivers a sound that is simultaneously crushing and atmospheric — a force in modern alt rock."',
     source: 'Music Publication Name', // TODO: Replace
     url: '#', // TODO: Replace with real URL
   },
@@ -80,7 +80,7 @@ export default function Press() {
                 <div key={i} className="aspect-square overflow-hidden bg-zinc-900">
                   <img
                     src={`/assets/press/${photo}`}
-                    alt={`DesireX press photo ${i + 1}`}
+                    alt={`Desire X press photo ${i + 1}`}
                     className="press-photo w-full h-full object-cover grayscale hover:grayscale-0"
                   />
                 </div>

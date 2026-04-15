@@ -43,7 +43,7 @@ const social = [
   },
   {
     name: 'Spotify',
-    handle: 'DesireX',
+    handle: 'Desire X',
     url: 'https://open.spotify.com/artist/45K51OH61Q78kAmZQVqwO4',
     Icon: SpotifyIcon,
   },

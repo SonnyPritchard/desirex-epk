@@ -4,7 +4,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Music from './components/Music'
 import Video from './components/Video'
-import Press from './components/Press'
+import Gallery from './components/Gallery'
 import Shows from './components/Shows'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -18,7 +18,7 @@ function App() {
         <About />
         <Music />
         <Video />
-        <Press />
+        <Gallery />
         <Shows />
         <Contact />
       </main>

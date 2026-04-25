@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desire X — EPK · Concept C: Raw</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #0c0c0c; color: #efefef;
+    font-family: 'Space Grotesk', sans-serif; font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 2.5rem;
+    border-bottom: 1px solid rgba(239,239,239,0.06);
+    background: rgba(12,12,12,0.92); backdrop-filter: blur(12px);
+  }
+  .logo {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.15em;
+    color: #efefef; text-decoration: none;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .logo span { color: #cc1111; }
+  .nav-items { display: flex; gap: 0.5rem; align-items: center; }
+  .nav-items a {
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(239,239,239,0.35); text-decoration: none;
+    padding: 0.5rem 1rem; transition: color 0.15s;
+  }
+  .nav-items a:hover { color: #efefef; }
+  .nav-cta {
+    background: #cc1111; color: #efefef !important; padding: 0.5rem 1.2rem !important;
+    transition: background 0.15s !important;
+  }
+  .nav-cta:hover { background: #e01313 !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: grid;
+    grid-template-rows: auto 1fr;
+    padding-top: 4rem; overflow: hidden; position: relative;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 38%;
+    min-height: calc(100vh - 4rem);
+  }
+  .hero-left {
+    padding: 4rem 2.5rem; display: flex; flex-direction: column;
+    justify-content: space-between; border-right: 1px solid rgba(239,239,239,0.06);
+    position: relative;
+  }
+  .hero-top {}
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #cc1111; margin-bottom: 3rem;
+  }
+  .hero-tag::before { content: ''; width: 1.5rem; height: 1px; background: #cc1111; }
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(6rem, 13vw, 14rem);
+    line-height: 0.88; letter-spacing: 0.03em; color: #efefef;
+    position: relative;
+  }
+  .hero-title .x-accent { color: #cc1111; }
+  .hero-title .outline {
+    -webkit-text-stroke: 1px rgba(239,239,239,0.15); color: transparent;
+    display: block;
+  }
+  .hero-meta {
+    display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+  }
+  .meta-item { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(239,239,239,0.3); }
+  .meta-dot { width: 3px; height: 3px; background: #cc1111; border-radius: 50%; flex-shrink: 0; }
+  .hero-ctas { display: flex; gap: 1rem; margin-top: 3rem; }
+  .btn {
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none; padding: 0.9rem 2rem; display: inline-block; transition: all 0.15s;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .btn-red { background: #cc1111; color: #efefef; }
+  .btn-red:hover { background: #e01313; }
+  .btn-line { border: 1px solid rgba(239,239,239,0.2); color: rgba(239,239,239,0.6); }
+  .btn-line:hover { border-color: rgba(239,239,239,0.5); color: #efefef; }
+
+  /* Big number watermark */
+  .hero-wm {
+    position: absolute; bottom: 2rem; left: 2.5rem;
+    font-family: 'Bebas Neue', sans-serif; font-size: 14rem;
+    color: rgba(239,239,239,0.02); line-height: 1; pointer-events: none; letter-spacing: 0.05em;
+    user-select: none;
+  }
+
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-right img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top;
+    display: block; filter: grayscale(20%) contrast(1.05);
+  }
+  .hero-right::before {
+    content: ''; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to right, #0c0c0c, transparent 30%),
+                linear-gradient(to top, #0c0c0c 10%, transparent 40%);
+  }
+  /* Corner tag */
+  .corner-tag {
+    position: absolute; bottom: 2rem; right: 1.5rem; z-index: 2;
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(239,239,239,0.2); writing-mode: vertical-rl;
+  }
+
+  /* TICKER BAR */
+  .ticker {
+    background: #cc1111; overflow: hidden; padding: 0.5rem 0;
+    display: flex; gap: 3rem; white-space: nowrap;
+  }
+  .ticker-inner { display: flex; gap: 3rem; animation: marquee 18s linear infinite; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .ticker span { font-family: 'Bebas Neue', sans-serif; font-size: 0.8rem; letter-spacing: 0.25em; color: #efefef; }
+  .ticker .dot { color: rgba(239,239,239,0.4); }
+
+  /* SECTION BASE */
+  .section { padding: 7rem 2.5rem; border-top: 1px solid rgba(239,239,239,0.06); }
+  .section-head { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 5rem; }
+  .section-num { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: #cc1111; letter-spacing: 0.2em; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 5rem); letter-spacing: 0.05em; color: #efefef; line-height: 1; }
+  .section-line { flex: 1; height: 1px; background: rgba(239,239,239,0.06); }
+
+  /* ABOUT */
+  .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .about-image { position: relative; }
+  .about-image img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; display: block; filter: grayscale(15%); }
+  .about-image::after { content: ''; position: absolute; inset: 0; border: 1px solid rgba(204,17,17,0.2); transform: translate(10px, 10px); pointer-events: none; }
+  .about-body { font-size: 0.95rem; line-height: 1.9; color: rgba(239,239,239,0.5); font-weight: 300; }
+  .about-body p + p { margin-top: 1.2rem; }
+  .about-body em { color: #efefef; font-style: normal; font-weight: 500; }
+  .stats-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 3rem; border: 1px solid rgba(239,239,239,0.06); }
+  .stat-cell { padding: 1.5rem; border-right: 1px solid rgba(239,239,239,0.06); }
+  .stat-cell:last-child { border-right: none; }
+  .stat-n { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: #cc1111; letter-spacing: 0.05em; }
+  .stat-l { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(239,239,239,0.3); margin-top: 0.3rem; }
+
+  /* MUSIC */
+  .music { background: #111; }
+  .music-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .tracklist { display: flex; flex-direction: column; }
+  .track {
+    display: grid; grid-template-columns: 2.5rem 1fr auto;
+    align-items: center; gap: 1.5rem;
+    padding: 1.2rem 1rem; border-bottom: 1px solid rgba(239,239,239,0.05);
+    transition: background 0.15s; cursor: default;
+  }
+  .track:hover { background: rgba(204,17,17,0.05); }
+  .track-n { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: rgba(239,239,239,0.12); text-align: center; }
+  .track-name { font-size: 0.9rem; color: #efefef; font-weight: 500; }
+  .track-sub { font-size: 0.65rem; color: rgba(239,239,239,0.25); letter-spacing: 0.1em; margin-top: 0.2rem; }
+  .track-play {
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: #cc1111; text-decoration: none; opacity: 0; transition: opacity 0.15s; white-space: nowrap;
+  }
+  .track:hover .track-play { opacity: 1; }
+
+  /* SHOWS */
+  .show-row {
+    display: grid; grid-template-columns: 7rem 1fr 1fr auto;
+    align-items: center; gap: 2rem;
+    padding: 2.5rem 0; border-bottom: 1px solid rgba(239,239,239,0.06);
+  }
+  .show-date { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.05em; color: #efefef; line-height: 1; }
+  .show-date span { font-size: 0.75rem; letter-spacing: 0.25em; color: rgba(239,239,239,0.3); display: block; margin-top: 0.2rem; }
+  .show-venue { font-size: 1rem; font-weight: 500; color: #efefef; }
+  .show-city { font-size: 0.7rem; color: rgba(239,239,239,0.3); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.3rem; }
+  .show-support { font-size: 0.7rem; color: rgba(239,239,239,0.25); }
+  .tba { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(239,239,239,0.2); border: 1px solid rgba(239,239,239,0.08); padding: 0.5rem 1rem; }
+  .book-block {
+    margin-top: 5rem; padding: 3rem; background: #cc1111;
+    display: flex; justify-content: space-between; align-items: center; gap: 2rem;
+  }
+  .book-text { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em; color: #efefef; }
+  .book-sub { font-size: 0.75rem; color: rgba(239,239,239,0.7); margin-top: 0.3rem; letter-spacing: 0.05em; }
+  .btn-white { background: #efefef; color: #0c0c0c; flex-shrink: 0; font-weight: 700; }
+  .btn-white:hover { background: #fff; }
+
+  /* CONTACT */
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+  .contact-col {}
+  .contact-head { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.2em; color: rgba(239,239,239,0.25); margin-bottom: 1.5rem; }
+  .contact-email { font-size: 1rem; color: #efefef; text-decoration: none; display: block; border-bottom: 1px solid rgba(239,239,239,0.08); padding-bottom: 1rem; transition: border-color 0.2s; }
+  .contact-email:hover { border-color: #cc1111; }
+  .contact-desc { font-size: 0.75rem; color: rgba(239,239,239,0.25); margin-top: 0.8rem; }
+  .social-grid { display: flex; gap: 0; margin-top: 3rem; border: 1px solid rgba(239,239,239,0.06); }
+  .social-item {
+    flex: 1; padding: 1.2rem; text-align: center; border-right: 1px solid rgba(239,239,239,0.06);
+    text-decoration: none; color: rgba(239,239,239,0.3); font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; transition: all 0.15s;
+  }
+  .social-item:last-child { border-right: none; }
+  .social-item:hover { color: #efefef; background: rgba(204,17,17,0.08); }
+
+  form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(239,239,239,0.3); display: block; margin-bottom: 0.4rem; }
+  input, select, textarea {
+    width: 100%; background: #161616; border: 1px solid rgba(239,239,239,0.08);
+    color: #efefef; padding: 0.85rem 1rem; font-size: 0.85rem; font-family: 'Space Grotesk', sans-serif;
+    outline: none; transition: border-color 0.15s;
+  }
+  input:focus, select:focus, textarea:focus { border-color: #cc1111; }
+  textarea { resize: none; height: 7rem; }
+  select option { background: #161616; }
+  .submit { background: #cc1111; color: #efefef; border: none; cursor: pointer; width: 100%; padding: 1rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; transition: background 0.15s; }
+  .submit:hover { background: #e01313; }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 2.5rem; border-top: 1px solid rgba(239,239,239,0.06);
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .f-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.15em; color: rgba(239,239,239,0.2); text-decoration: none; }
+  .f-links { display: flex; gap: 2rem; }
+  .f-links a { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(239,239,239,0.2); text-decoration: none; transition: color 0.15s; }
+  .f-links a:hover { color: #cc1111; }
+  .f-copy { font-size: 0.62rem; color: rgba(239,239,239,0.15); letter-spacing: 0.05em; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.2rem; }
+    .nav-items a:not(.nav-cta) { display: none; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 3rem 1.2rem; min-height: calc(100vh - 4rem); }
+    .section { padding: 4rem 1.2rem; }
+    .about-layout, .music-layout, .contact-layout { grid-template-columns: 1fr; }
+    .show-row { grid-template-columns: 5rem 1fr auto; }
+    .show-row > div:nth-child(3) { display: none; }
+    .book-block { flex-direction: column; text-align: center; }
+    .stats-bar { grid-template-columns: 1fr; }
+    .stat-cell { border-right: none; border-bottom: 1px solid rgba(239,239,239,0.06); }
+    footer { flex-direction: column; align-items: flex-start; padding: 1.5rem 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">DESIRE<span>X</span></a>
+  <div class="nav-items">
+    <a href="#about">About</a>
+    <a href="#music">Music</a>
+    <a href="#shows">Shows</a>
+    <a href="#contact" class="nav-cta">Book Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-top">
+        <div class="hero-tag">Electronic Press Kit · Bristol, UK</div>
+        <h1 class="hero-title">
+          DESIRE
+          <span class="x-accent">X</span>
+          <span class="outline">DESIRE X</span>
+        </h1>
+        <div class="hero-meta" style="margin-top:2rem;">
+          <span class="meta-item">Alt Rock</span>
+          <span class="meta-dot"></span>
+          <span class="meta-item">Bristol UK</span>
+          <span class="meta-dot"></span>
+          <span class="meta-item">7.1K Listeners</span>
+        </div>
+        <div class="hero-ctas">
+          <a href="https://open.spotify.com/artist/45K51OH61Q78kAmZQVqwO4" target="_blank" class="btn btn-red">Listen on Spotify</a>
+          <a href="#contact" class="btn btn-line">Book Now</a>
+        </div>
+      </div>
+      <div class="hero-wm">DX</div>
+    </div>
+    <div class="hero-right">
+      <img src="https://i.scdn.co/image/ab6761610000e5eb0291c4c014b55584b0c8810d" alt="Desire X">
+      <div class="corner-tag">@desirexofficial</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>DESIRE X</span><span class="dot">·</span>
+    <span>ALT ROCK</span><span class="dot">·</span>
+    <span>BRISTOL UK</span><span class="dot">·</span>
+    <span>LIVE AT THE FLEECE — 18 JUL</span><span class="dot">·</span>
+    <span>7.1K MONTHLY LISTENERS</span><span class="dot">·</span>
+    <span>FOLLOW THE JOURNEY</span><span class="dot">·</span>
+    <span>DESIRE X</span><span class="dot">·</span>
+    <span>ALT ROCK</span><span class="dot">·</span>
+    <span>BRISTOL UK</span><span class="dot">·</span>
+    <span>LIVE AT THE FLEECE — 18 JUL</span><span class="dot">·</span>
+    <span>7.1K MONTHLY LISTENERS</span><span class="dot">·</span>
+    <span>FOLLOW THE JOURNEY</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-head">
+    <span class="section-num">01</span>
+    <h2 class="section-title">About</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-layout">
+    <div class="about-image">
+      <img src="https://i.scdn.co/image/ab6761610000e5eb0291c4c014b55584b0c8810d" alt="Desire X">
+    </div>
+    <div>
+      <div class="about-body">
+        <p>Desire X is an alt rock act out of <em>Bristol, UK</em> — built on raw energy, direct songwriting, and the kind of live presence that makes rooms pay attention.</p>
+        <p>With tracks like <em>Break the Chain</em>, <em>Warrior</em>, and <em>Repair</em> accumulating over <em>7,000 monthly listeners</em> on Spotify, Desire X are steadily building an audience that follows the journey from first riff to last note.</p>
+        <p>We'll take good care of you.</p>
+      </div>
+      <div class="stats-bar">
+        <div class="stat-cell"><div class="stat-n">7.1K</div><div class="stat-l">Monthly Listeners</div></div>
+        <div class="stat-cell"><div class="stat-n">1.1K</div><div class="stat-l">Instagram</div></div>
+        <div class="stat-cell"><div class="stat-n">5+</div><div class="stat-l">Tracks</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section class="section music" id="music">
+  <div class="section-head">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Music</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="music-layout">
+    <div>
+      <iframe src="https://open.spotify.com/embed/artist/45K51OH61Q78kAmZQVqwO4?utm_source=generator&theme=0" width="100%" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Desire X on Spotify" style="border-radius:4px;display:block;"></iframe>
+    </div>
+    <div class="tracklist">
+      <div class="track"><span class="track-n">01</span><div><div class="track-name">Break the Chain</div><div class="track-sub">Single</div></div><a href="https://open.spotify.com/track/1IBM8JHX8JQG0LDVkCzQoV" target="_blank" class="track-play">Play →</a></div>
+      <div class="track"><span class="track-n">02</span><div><div class="track-name">Repair</div><div class="track-sub">Single</div></div><a href="https://open.spotify.com/track/59UHKsTe5mLPbHijgsJSJb" target="_blank" class="track-play">Play →</a></div>
+      <div class="track"><span class="track-n">03</span><div><div class="track-name">Remade</div><div class="track-sub">Single</div></div><a href="https://open.spotify.com/track/0QYeWQRnuxtBjenh7c2sa3" target="_blank" class="track-play">Play →</a></div>
+      <div class="track"><span class="track-n">04</span><div><div class="track-name">No Miracle</div><div class="track-sub">Single</div></div><a href="https://open.spotify.com/track/7oU99XtvxsJly7FQ5Er0XI" target="_blank" class="track-play">Play →</a></div>
+      <div class="track"><span class="track-n">05</span><div><div class="track-name">Warrior</div><div class="track-sub">Single</div></div><a href="https://open.spotify.com/track/0TzSE5laQfxrol4z3tyhVI" target="_blank" class="track-play">Play →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWS -->
+<section class="section" id="shows">
+  <div class="section-head">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Shows</h2>
+    <div class="section-line"></div>
+  </div>
+  <div>
+    <div class="show-row">
+      <div class="show-date">18<span>Jul 2025</span></div>
+      <div>
+        <div class="show-venue">The Fleece</div>
+        <div class="show-city">Bristol, UK</div>
+      </div>
+      <div class="show-support"></div>
+      <span class="tba">Tickets TBA</span>
+    </div>
+  </div>
+  <div class="book-block">
+    <div>
+      <div class="book-text">Book Desire X</div>
+      <div class="book-sub">Available for headline slots, support tours & festivals</div>
+    </div>
+    <a href="#contact" class="btn btn-white">Get in Touch</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-head">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Contact</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-layout">
+    <div>
+      <div class="contact-col" style="margin-bottom:2.5rem;">
+        <div class="contact-head">Booking</div>
+        <a href="mailto:booking@desirex.com" class="contact-email">booking@desirex.com</a>
+        <div class="contact-desc">Live bookings, tours & festivals</div>
+      </div>
+      <div class="contact-col">
+        <div class="contact-head">Press & Media</div>
+        <a href="mailto:press@desirex.com" class="contact-email">press@desirex.com</a>
+        <div class="contact-desc">Interviews & hi-res assets</div>
+      </div>
+      <div class="social-grid" style="margin-top:2.5rem;">
+        <a href="https://www.instagram.com/desirexofficial/" target="_blank" class="social-item">Instagram</a>
+        <a href="https://www.youtube.com/@desirexofficial" target="_blank" class="social-item">YouTube</a>
+        <a href="https://open.spotify.com/artist/45K51OH61Q78kAmZQVqwO4" target="_blank" class="social-item">Spotify</a>
+      </div>
+    </div>
+    <form>
+      <div class="form-row-2">
+        <div><label>Name</label><input type="text" placeholder="Your name"></div>
+        <div><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      </div>
+      <div><label>Subject</label>
+        <select>
+          <option>Booking Inquiry</option>
+          <option>Press / Interview</option>
+          <option>Collaboration</option>
+          <option>General</option>
+        </select>
+      </div>
+      <div><label>Message</label><textarea placeholder="Your message..."></textarea></div>
+      <button type="submit" class="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="f-logo">DESIRE X</a>
+  <div class="f-links">
+    <a href="#about">About</a>
+    <a href="#music">Music</a>
+    <a href="#shows">Shows</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <span class="f-copy">© 2025 Desire X. All rights reserved.</span>
+</footer>
+
+</body>
+</html>

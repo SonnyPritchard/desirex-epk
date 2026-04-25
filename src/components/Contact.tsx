@@ -1,12 +1,10 @@
+import { type FormEvent, useState } from 'react'
 import { Mail } from 'lucide-react'
 
-/*
-  TODO: Replace BOOKING_EMAIL and PRESS_EMAIL with real contact addresses.
-  Optional: wire the form to a service like Formspree, EmailJS, or a backend.
-  For now the form links to the mailto address on submit — swap if needed.
-*/
-const BOOKING_EMAIL = 'booking@desirex.com'    // TODO: Replace
-const PRESS_EMAIL   = 'press@desirex.com'      // TODO: Replace
+const BOOKING_EMAIL = 'booking@desirex.co.uk'
+const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${BOOKING_EMAIL}`
+
+type SubmitState = 'idle' | 'submitting' | 'success' | 'error'
 
 const InstagramIcon = () => (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -50,6 +48,47 @@ const social = [
 ]
 
 export default function Contact() {
+  const [submitState, setSubmitState] = useState<SubmitState>('idle')
+  const [feedback, setFeedback] = useState('')
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const form = e.currentTarget
+    const data = new FormData(form)
+    const subjectValue = String(data.get('subject') || 'General')
+    const mailingListOptIn = data.get('mailingList') === 'yes' ? 'Yes' : 'No'
+
+    data.set('_subject', `EPK Inquiry: ${subjectValue}`)
+    data.set('_captcha', 'false')
+    data.set('_template', 'table')
+    data.set('mailingList', mailingListOptIn)
+
+    setSubmitState('submitting')
+    setFeedback('')
+
+    try {
+      const response = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+        body: data,
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send')
+      }
+
+      setSubmitState('success')
+      setFeedback('Message sent. We\'ll be in touch soon.')
+      form.reset()
+    } catch {
+      setSubmitState('error')
+      setFeedback('Something went wrong. Please email booking@desirex.co.uk directly.')
+    }
+  }
+
   return (
     <section id="contact" className="py-28 px-6 bg-black">
       <div className="max-w-7xl mx-auto">
@@ -75,21 +114,6 @@ export default function Contact() {
               </a>
               <p className="text-xs text-zinc-600 mt-2 leading-relaxed">
                 For live bookings, festival slots, tours, and collaborations.
-              </p>
-            </div>
-
-            {/* Press */}
-            <div>
-              <p className="text-xs tracking-ultra uppercase text-red-500 mb-3">Press & Media</p>
-              <a
-                href={`mailto:${PRESS_EMAIL}`}
-                className="flex items-center gap-3 text-zinc-300 hover:text-white transition-colors group"
-              >
-                <Mail size={16} className="text-red-600 shrink-0" />
-                <span className="text-sm group-hover:underline underline-offset-4">{PRESS_EMAIL}</span>
-              </a>
-              <p className="text-xs text-zinc-600 mt-2 leading-relaxed">
-                Hi-res photos, interview requests, and press materials.
               </p>
             </div>
 
@@ -125,21 +149,7 @@ export default function Contact() {
           {/* Right — inquiry form */}
           <div>
             <p className="text-xs tracking-ultra uppercase text-red-500 mb-6">Send a Message</p>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault()
-                const data = new FormData(e.currentTarget)
-                const subjectValue = String(data.get('subject') || 'General')
-                const isPress = subjectValue === 'Press / Interview'
-                const recipient = isPress ? PRESS_EMAIL : BOOKING_EMAIL
-                const subject = encodeURIComponent(`EPK Inquiry: ${subjectValue}`)
-                const body = encodeURIComponent(
-                  `Name: ${data.get('name')}\nEmail: ${data.get('email')}\n\n${data.get('message')}`
-                )
-                window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`
-              }}
-              className="space-y-4"
-            >
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs tracking-widest uppercase text-zinc-500 mb-2">Name</label>
@@ -169,7 +179,6 @@ export default function Contact() {
                   className="w-full bg-zinc-900 border border-white/10 focus:border-red-700 text-zinc-300 text-sm px-4 py-3 outline-none transition-colors"
                 >
                   <option value="Booking Inquiry" className="bg-zinc-900">Booking Inquiry</option>
-                  <option value="Press / Interview" className="bg-zinc-900">Press / Interview</option>
                   <option value="Collaboration" className="bg-zinc-900">Collaboration</option>
                   <option value="General" className="bg-zinc-900">General</option>
                 </select>
@@ -184,11 +193,30 @@ export default function Contact() {
                   className="w-full bg-zinc-900 border border-white/10 focus:border-red-700 text-white text-sm px-4 py-3 outline-none transition-colors placeholder:text-zinc-600 resize-none"
                 />
               </div>
+              <label className="flex items-start gap-3 p-4 border border-white/10 bg-zinc-950/50 text-sm text-zinc-300 cursor-pointer">
+                <input
+                  name="mailingList"
+                  type="checkbox"
+                  value="yes"
+                  className="mt-0.5 h-4 w-4 rounded border-white/20 bg-zinc-900 text-red-700 focus:ring-red-700"
+                />
+                <span>
+                  Join the mailing list for new releases, show announcements, and updates.
+                </span>
+              </label>
+
+              {feedback ? (
+                <p className={`text-sm ${submitState === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+                  {feedback}
+                </p>
+              ) : null}
+
               <button
                 type="submit"
-                className="w-full py-4 bg-red-700 hover:bg-red-600 text-white text-xs tracking-widest uppercase font-medium transition-colors"
+                disabled={submitState === 'submitting'}
+                className="w-full py-4 bg-red-700 hover:bg-red-600 disabled:opacity-60 disabled:cursor-not-allowed text-white text-xs tracking-widest uppercase font-medium transition-colors"
               >
-                Send Message
+                {submitState === 'submitting' ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>

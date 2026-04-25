@@ -89,20 +89,6 @@ export default function Shows() {
           </p>
         )}
 
-        {/* Booking CTA */}
-        <div className="mt-16 text-center p-10 border border-white/5 bg-zinc-900/30 max-w-2xl mx-auto">
-          <p className="font-display text-3xl text-white mb-3">BOOK DESIRE X</p>
-          <p className="text-sm text-zinc-400 mb-6 leading-relaxed">
-            Available for headline slots, support tours, festivals, and private events.
-            Reach out below with your inquiry.
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-red-700 hover:bg-red-600 text-white text-xs tracking-widest uppercase transition-colors"
-          >
-            Booking Enquiry
-          </a>
-        </div>
       </div>
     </section>
   )

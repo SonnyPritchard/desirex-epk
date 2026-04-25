@@ -17,10 +17,10 @@ export default function Footer() {
 
           {/* Nav */}
           <div className="flex flex-wrap justify-center gap-6">
-            {['About', 'Music', 'Video', 'Press', 'Shows', 'Contact'].map((item) => (
+            {['About', 'Music', 'Video', 'Live', 'Shows', 'Contact'].map((item) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={item === 'Live' ? '#gallery' : `#${item.toLowerCase()}`}
                 className="text-xs tracking-widest uppercase text-zinc-500 hover:text-white transition-colors"
               >
                 {item}

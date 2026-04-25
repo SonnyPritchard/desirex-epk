@@ -5,7 +5,7 @@ const links = [
   { label: 'About', href: '#about' },
   { label: 'Music', href: '#music' },
   { label: 'Video', href: '#video' },
-  { label: 'Press', href: '#press' },
+  { label: 'Live', href: '#gallery' },
   { label: 'Shows', href: '#shows' },
   { label: 'Contact', href: '#contact' },
 ]

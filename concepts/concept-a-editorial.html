@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desire X — EPK · Concept A: Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #080808;
+    --white: #f0ede8;
+    --red: #c41e1e;
+    --gray: #1a1a1a;
+    --muted: #666;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.5rem 3rem;
+    background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent);
+  }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.3em; color: var(--white); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+
+  /* HERO — full bleed split */
+  .hero {
+    height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+    position: relative; overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 5rem 3rem 5rem 3rem; position: relative; z-index: 2;
+  }
+  .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; }
+  .hero-title {
+    font-family: 'Playfair Display', serif; font-size: clamp(4rem, 7vw, 8rem);
+    font-weight: 900; line-height: 0.9; color: var(--white);
+    margin-bottom: 2rem;
+  }
+  .hero-title em { font-style: italic; color: var(--red); }
+  .hero-sub { font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 3rem; line-height: 2; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { padding: 0.9rem 2rem; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .btn-primary { background: var(--red); color: var(--white); }
+  .btn-primary:hover { background: #e02020; }
+  .btn-outline { border: 1px solid rgba(240,237,232,0.3); color: var(--white); }
+  .btn-outline:hover { border-color: var(--white); }
+
+  .hero-right {
+    position: relative; overflow: hidden;
+  }
+  .hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: top; filter: grayscale(30%); }
+  .hero-right::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to right, var(--black), transparent 40%);
+  }
+  .hero-issue {
+    position: absolute; bottom: 3rem; right: 2rem; z-index: 3;
+    font-family: 'Bebas Neue', sans-serif; font-size: 6rem; line-height: 1;
+    color: rgba(240,237,232,0.08); letter-spacing: 0.05em; pointer-events: none;
+    writing-mode: vertical-rl;
+  }
+
+  /* RULE */
+  .rule { height: 1px; background: rgba(240,237,232,0.08); margin: 0; }
+
+  /* STRIP — full bleed label */
+  .strip {
+    padding: 0.6rem 3rem; display: flex; gap: 4rem; align-items: center;
+    background: var(--red); overflow: hidden;
+  }
+  .strip span {
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.85rem; letter-spacing: 0.3em;
+    white-space: nowrap; color: var(--white);
+  }
+
+  /* ABOUT — editorial two-col */
+  .about { padding: 7rem 3rem; display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; }
+  .about-label {
+    font-family: 'Bebas Neue', sans-serif; font-size: 5rem; line-height: 1;
+    color: rgba(240,237,232,0.06); writing-mode: vertical-rl;
+    transform: rotate(180deg); letter-spacing: 0.1em; user-select: none;
+  }
+  .about-content {}
+  .section-tag { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+  .about-heading {
+    font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 700; line-height: 1.1; margin-bottom: 2rem; color: var(--white);
+  }
+  .about-heading em { font-style: italic; }
+  .about-body { font-size: 0.95rem; line-height: 1.9; color: #999; font-weight: 300; max-width: 60ch; }
+  .about-body p + p { margin-top: 1.2rem; }
+  .stats-row { display: flex; gap: 3rem; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(240,237,232,0.08); }
+  .stat-val { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--white); }
+  .stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 0.3rem; }
+
+  /* MUSIC */
+  .music { padding: 7rem 3rem; background: var(--gray); }
+  .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4rem; border-bottom: 1px solid rgba(240,237,232,0.08); padding-bottom: 1.5rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 3rem); font-weight: 700; color: var(--white); }
+  .section-link { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); text-decoration: none; }
+  .music-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .spotify-embed iframe { border-radius: 8px; display: block; }
+  .tracklist {}
+  .track {
+    display: flex; align-items: center; gap: 1.5rem;
+    padding: 1.2rem 0; border-bottom: 1px solid rgba(240,237,232,0.06);
+    cursor: default; transition: background 0.15s;
+  }
+  .track:hover { background: rgba(240,237,232,0.03); margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+  .track-num { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: rgba(240,237,232,0.15); width: 2rem; text-align: right; flex-shrink: 0; }
+  .track-info { flex: 1; }
+  .track-name { font-size: 0.9rem; color: var(--white); font-weight: 500; }
+  .track-sub { font-size: 0.7rem; color: var(--muted); margin-top: 0.2rem; }
+  .track-link { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); text-decoration: none; opacity: 0; transition: opacity 0.2s; }
+  .track:hover .track-link { opacity: 1; }
+
+  /* SHOWS */
+  .shows { padding: 7rem 3rem; }
+  .shows-list { margin-top: 3rem; }
+  .show {
+    display: grid; grid-template-columns: 8rem 1fr auto;
+    align-items: center; gap: 2rem;
+    padding: 2rem 0; border-bottom: 1px solid rgba(240,237,232,0.08);
+  }
+  .show-date { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--white); }
+  .show-venue { font-size: 1rem; color: var(--white); font-weight: 500; }
+  .show-location { font-size: 0.75rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.1em; }
+  .show-status { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); border: 1px solid rgba(240,237,232,0.15); padding: 0.5rem 1.2rem; }
+
+  /* CONTACT */
+  .contact { padding: 7rem 3rem; background: var(--gray); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+  .contact-info {}
+  .contact-heading { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 3.5rem); font-weight: 700; line-height: 1.1; color: var(--white); margin-bottom: 2rem; }
+  .contact-heading em { font-style: italic; color: var(--red); }
+  .contact-item { margin-bottom: 2rem; }
+  .contact-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .contact-val { font-size: 0.9rem; color: var(--white); text-decoration: none; display: block; }
+  .contact-val:hover { color: var(--red); }
+  .contact-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.3rem; }
+  .social-row { display: flex; gap: 1.5rem; margin-top: 2.5rem; }
+  .social-link { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+  .social-link:hover { color: var(--white); border-color: var(--red); }
+
+  .contact-form {}
+  label { display: block; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  input, select, textarea {
+    width: 100%; background: rgba(240,237,232,0.04); border: 1px solid rgba(240,237,232,0.1);
+    color: var(--white); padding: 0.9rem 1rem; font-size: 0.85rem; font-family: 'Inter', sans-serif;
+    outline: none; transition: border-color 0.2s; margin-bottom: 1.2rem; display: block;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--red); }
+  textarea { resize: none; height: 8rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .submit { width: 100%; padding: 1rem; background: var(--red); color: var(--white); border: none; font-family: 'Inter', sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+  .submit:hover { background: #e02020; }
+
+  /* FOOTER */
+  footer { padding: 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(240,237,232,0.06); }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.3em; color: rgba(240,237,232,0.4); text-decoration: none; }
+  .footer-copy { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { justify-content: flex-end; padding: 2rem 1.5rem; min-height: 100vh; }
+    .about, .music-grid, .contact, .section-header { grid-template-columns: 1fr; }
+    .about-label { display: none; }
+    .strip { padding: 0.6rem 1.5rem; }
+    .shows, .about, .music, .contact { padding: 4rem 1.5rem; }
+    .show { grid-template-columns: 5rem 1fr auto; }
+    footer { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Desire X</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#music">Music</a>
+    <a href="#shows">Shows</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Electronic Press Kit · Bristol, UK</p>
+    <h1 class="hero-title">Desire<br><em>X</em></h1>
+    <p class="hero-sub">Alt Rock &nbsp;·&nbsp; Bristol UK &nbsp;·&nbsp; Follow the Journey</p>
+    <div class="hero-ctas">
+      <a href="https://open.spotify.com/artist/45K51OH61Q78kAmZQVqwO4" target="_blank" class="btn btn-primary">Listen on Spotify</a>
+      <a href="#contact" class="btn btn-outline">Book Now</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://i.scdn.co/image/ab6761610000e5eb0291c4c014b55584b0c8810d" alt="Desire X">
+    <div class="hero-issue">DESIRE X</div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="strip">
+  <span>Alt Rock</span><span>·</span>
+  <span>Bristol UK</span><span>·</span>
+  <span>7.1K Monthly Listeners</span><span>·</span>
+  <span>Follow the Journey</span><span>·</span>
+  <span>Live: The Fleece — 18 Jul</span><span>·</span>
+  <span>Alt Rock</span><span>·</span>
+  <span>Bristol UK</span><span>·</span>
+  <span>7.1K Monthly Listeners</span><span>·</span>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-label">Story</div>
+  <div class="about-content">
+    <p class="section-tag">About the Artist</p>
+    <h2 class="about-heading">Building<br><em>something real</em><br>from Bristol.</h2>
+    <div class="about-body">
+      <p>Desire X is an alt rock act out of Bristol, UK — built on raw energy, direct songwriting, and the kind of live presence that makes rooms pay attention.</p>
+      <p>With tracks like <em>Break the Chain</em>, <em>Warrior</em>, and <em>Repair</em> accumulating over 7,000 monthly listeners on Spotify, Desire X are steadily building an audience that follows the journey from first riff to last note.</p>
+      <p>We'll take good care of you.</p>
+    </div>
+    <div class="stats-row">
+      <div><div class="stat-val">7.1K</div><div class="stat-label">Monthly Listeners</div></div>
+      <div><div class="stat-val">1.1K</div><div class="stat-label">Instagram</div></div>
+      <div><div class="stat-val">5+</div><div class="stat-label">Tracks on Spotify</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- MUSIC -->
+<section class="music" id="music">
+  <div class="section-header">
+    <h2 class="section-title">Music</h2>
+    <a href="https://open.spotify.com/artist/45K51OH61Q78kAmZQVqwO4" target="_blank" class="section-link">Open on Spotify →</a>
+  </div>
+  <div class="music-grid">
+    <div class="spotify-embed">
+      <iframe src="https://open.spotify.com/embed/artist/45K51OH61Q78kAmZQVqwO4?utm_source=generator&theme=0" width="100%" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Desire X on Spotify"></iframe>
+    </div>
+    <div class="tracklist">
+      <div class="track"><span class="track-num">1</span><div class="track-info"><div class="track-name">Break the Chain</div><div class="track-sub">Single</div></div><a href="https://open.spotify.com/track/1IBM8JHX8JQG0LDVkCzQoV" target="_blank" class="track-link">Play</a></div>
+      <div class="track"><span class="track-num">2</span><div class="track-info"><div class="track-name">Repair</div><div class="track-sub">Single</div></div><a href="https://open.spotify.com/track/59UHKsTe5mLPbHijgsJSJb" target="_blank" class="track-link">Play</a></div>
+      <div class="track"><span class="track-num">3</span><div class="track-info"><div class="track-name">Remade</div><div class="track-sub">Single</div></div><a href="https://open.spotify.com/track/0QYeWQRnuxtBjenh7c2sa3" target="_blank" class="track-link">Play</a></div>
+      <div class="track"><span class="track-num">4</span><div class="track-info"><div class="track-name">No Miracle</div><div class="track-sub">Single</div></div><a href="https://open.spotify.com/track/7oU99XtvxsJly7FQ5Er0XI" target="_blank" class="track-link">Play</a></div>
+      <div class="track"><span class="track-num">5</span><div class="track-info"><div class="track-name">Warrior</div><div class="track-sub">Single</div></div><a href="https://open.spotify.com/track/0TzSE5laQfxrol4z3tyhVI" target="_blank" class="track-link">Play</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWS -->
+<section class="shows" id="shows">
+  <p class="section-tag">Live</p>
+  <h2 class="section-title" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,3rem);font-weight:700;color:var(--white);margin-bottom:0;">Upcoming Shows</h2>
+  <div class="shows-list">
+    <div class="show">
+      <div class="show-date">18<br>JUL</div>
+      <div>
+        <div class="show-venue">The Fleece</div>
+        <div class="show-location">Bristol, UK</div>
+      </div>
+      <div class="show-status">Tickets TBA</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-info">
+    <h2 class="contact-heading">Let's make<br>something <em>happen.</em></h2>
+    <div class="contact-item">
+      <div class="contact-label">Booking</div>
+      <a href="mailto:booking@desirex.com" class="contact-val">booking@desirex.com</a>
+      <div class="contact-note">Live bookings, tours & festivals</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Press & Media</div>
+      <a href="mailto:press@desirex.com" class="contact-val">press@desirex.com</a>
+      <div class="contact-note">Interviews & hi-res assets</div>
+    </div>
+    <div class="social-row">
+      <a href="https://www.instagram.com/desirexofficial/" target="_blank" class="social-link">Instagram</a>
+      <a href="https://www.youtube.com/@desirexofficial" target="_blank" class="social-link">YouTube</a>
+      <a href="https://open.spotify.com/artist/45K51OH61Q78kAmZQVqwO4" target="_blank" class="social-link">Spotify</a>
+    </div>
+  </div>
+  <form class="contact-form">
+    <div class="form-row">
+      <div><label>Name</label><input type="text" placeholder="Your name"></div>
+      <div><label>Email</label><input type="email" placeholder="your@email.com"></div>
+    </div>
+    <label>Subject</label>
+    <select><option>Booking Inquiry</option><option>Press / Interview</option><option>Collaboration</option><option>General</option></select>
+    <label>Message</label>
+    <textarea placeholder="Your message..."></textarea>
+    <button type="submit" class="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <a href="#" class="footer-logo">Desire X</a>
+  <span class="footer-copy">© 2025 Desire X. All rights reserved.</span>
+</footer>
+
+</body>
+</html>

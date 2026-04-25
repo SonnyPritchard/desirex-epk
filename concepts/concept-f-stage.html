@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desire X — Concept F: Stage</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#07060f;color:#e8e4f0;
+  font-family:'Inter',sans-serif;font-weight:300;
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1.5rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  background:linear-gradient(to bottom,rgba(7,6,15,0.95),transparent);
+}
+.logo{font-family:'Anton',sans-serif;font-size:1.4rem;letter-spacing:0.12em;color:#e8e4f0;text-decoration:none;}
+.logo span{color:#b06aff;}
+.nav-links{display:flex;gap:2rem;align-items:center;}
+.nav-links a{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(232,228,240,0.35);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:#e8e4f0;}
+.nav-cta{border:1px solid rgba(176,106,255,0.4);padding:0.5rem 1.2rem;color:rgba(176,106,255,0.8)!important;transition:all 0.2s!important;}
+.nav-cta:hover{border-color:#b06aff;color:#b06aff!important;background:rgba(176,106,255,0.05)!important;}
+
+/* HERO — stage */
+.hero{
+  min-height:100vh;position:relative;overflow:hidden;
+  display:flex;align-items:flex-end;padding:0 3rem 5rem;
+}
+
+/* Dark stage floor gradient */
+.stage-floor{
+  position:absolute;bottom:0;left:0;right:0;height:40%;
+  background:linear-gradient(to top,#07060f,transparent);
+  z-index:3;
+}
+
+/* Photo bg */
+.hero-photo{position:absolute;inset:0;z-index:1;}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:top;opacity:0.35;filter:grayscale(30%);}
+.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,#07060f 15%,rgba(7,6,15,0.3) 60%,rgba(7,6,15,0.6) 100%);}
+
+/* Stage lights — pure CSS conic gradient spotlights */
+.lights{position:absolute;top:0;left:0;right:0;height:70%;z-index:2;pointer-events:none;}
+.light{position:absolute;top:0;transform-origin:top center;}
+.light-1{
+  left:10%;width:35%;height:100%;
+  background:conic-gradient(from -10deg at 50% 0%,transparent 0deg,rgba(176,106,255,0.07) 15deg,rgba(176,106,255,0.12) 20deg,rgba(176,106,255,0.07) 25deg,transparent 40deg);
+  filter:blur(4px);
+}
+.light-2{
+  left:30%;width:40%;height:110%;
+  background:conic-gradient(from -12deg at 50% 0%,transparent 0deg,rgba(255,180,60,0.06) 16deg,rgba(255,180,60,0.1) 22deg,rgba(255,180,60,0.06) 28deg,transparent 44deg);
+  filter:blur(5px);
+}
+.light-3{
+  right:8%;width:38%;height:95%;
+  background:conic-gradient(from -8deg at 50% 0%,transparent 0deg,rgba(100,180,255,0.05) 14deg,rgba(100,180,255,0.09) 20deg,rgba(100,180,255,0.05) 26deg,transparent 38deg);
+  filter:blur(4px);
+}
+.light-4{
+  left:55%;width:30%;height:80%;
+  background:conic-gradient(from -15deg at 50% 0%,transparent 0deg,rgba(255,80,150,0.04) 12deg,rgba(255,80,150,0.07) 18deg,rgba(255,80,150,0.04) 24deg,transparent 36deg);
+  filter:blur(6px);
+}
+
+/* Fog / haze at bottom */
+.haze{
+  position:absolute;bottom:0;left:-10%;right:-10%;height:35%;z-index:4;pointer-events:none;
+  background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(176,106,255,0.06) 0%,transparent 70%);
+}
+
+/* Hero text */
+.hero-content{position:relative;z-index:10;width:100%;}
+.h-label{font-size:0.62rem;letter-spacing:0.45em;text-transform:uppercase;color:rgba(176,106,255,0.7);margin-bottom:1.5rem;}
+.hero-name{
+  font-family:'Anton',sans-serif;
+  font-size:clamp(5rem,16vw,18rem);
+  line-height:0.85;letter-spacing:0.04em;color:#e8e4f0;
+  text-shadow:0 0 80px rgba(176,106,255,0.3),0 0 160px rgba(176,106,255,0.1);
+}
+.hero-name .x{color:#b06aff;text-shadow:0 0 60px rgba(176,106,255,0.8),0 0 120px rgba(176,106,255,0.4);}
+.hero-tagline{
+  font-size:0.75rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:rgba(232,228,240,0.35);margin:2rem 0 3rem;
+  display:flex;align-items:center;gap:1.5rem;
+}
+.tag-dot{width:4px;height:4px;background:#b06aff;border-radius:50%;flex-shrink:0;}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn{
+  font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;
+  padding:1rem 2.5rem;display:inline-block;transition:all 0.2s;font-family:'Inter',sans-serif;
+}
+.btn-purple{background:#b06aff;color:#07060f;font-weight:600;}
+.btn-purple:hover{background:#c484ff;box-shadow:0 0 30px rgba(176,106,255,0.4);}
+.btn-ghost{border:1px solid rgba(232,228,240,0.15);color:rgba(232,228,240,0.6);}
+.btn-ghost:hover{border-color:rgba(232,228,240,0.4);color:#e8e4f0;}
+
+/* SECTIONS */
+.section{padding:8rem 3rem;border-top:1px solid rgba(232,228,240,0.05);}
+.s-pre{font-size:0.6rem;letter-spacing:0.45em;text-transform:uppercase;color:rgba(176,106,255,0.6);margin-bottom:1rem;}
+.s-title{font-family:'Anton',sans-serif;font-size:clamp(3rem,7vw,8rem);letter-spacing:0.04em;color:#e8e4f0;line-height:0.9;margin-bottom:3rem;}
+
+/* ABOUT */
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-visual{position:relative;}
+.about-visual img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;display:block;}
+/* purple light overlay on photo */
+.about-visual::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(176,106,255,0.15) 0%,transparent 60%),
+             linear-gradient(to top,rgba(7,6,15,0.8) 0%,transparent 40%);
+  z-index:1;
+}
+.photo-glow{
+  position:absolute;top:-20px;left:-20px;right:-20px;bottom:-20px;
+  background:radial-gradient(ellipse at center,rgba(176,106,255,0.15) 0%,transparent 70%);
+  z-index:0;
+}
+.about-text p{font-size:0.95rem;line-height:2;color:rgba(232,228,240,0.5);margin-bottom:1.5rem;}
+.about-text em{color:#e8e4f0;font-style:normal;}
+.stats-row{display:flex;gap:0;margin-top:3rem;border:1px solid rgba(232,228,240,0.06);}
+.stat{flex:1;padding:1.5rem;border-right:1px solid rgba(232,228,240,0.06);text-align:center;}
+.stat:last-child{border-right:none;}
+.stat-n{font-family:'Anton',sans-serif;font-size:2.5rem;letter-spacing:0.05em;color:#b06aff;text-shadow:0 0 30px rgba(176,106,255,0.4);}
+.stat-l{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(232,228,240,0.25);margin-top:0.5rem;}
+
+/* MUSIC */
+.music-bg{background:#0d0b1a;}
+.music-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.tracks{}
+.track{
+  display:flex;align-items:center;gap:2rem;padding:1.4rem 1.5rem;
+  border-bottom:1px solid rgba(232,228,240,0.05);transition:all 0.2s;cursor:default;
+  position:relative;
+}
+.track::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:#b06aff;opacity:0;transition:opacity 0.2s;}
+.track:hover{background:rgba(176,106,255,0.04);}
+.track:hover::before{opacity:1;}
+.t-num{font-family:'Anton',sans-serif;font-size:1.8rem;color:rgba(232,228,240,0.07);flex-shrink:0;width:2.5rem;letter-spacing:0.05em;}
+.t-name{font-size:0.95rem;color:#e8e4f0;font-weight:400;flex:1;}
+.t-sub{font-size:0.65rem;color:rgba(232,228,240,0.25);margin-top:0.2rem;letter-spacing:0.1em;}
+.t-play{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:#b06aff;text-decoration:none;opacity:0;transition:opacity 0.2s;flex-shrink:0;}
+.track:hover .t-play{opacity:1;}
+
+/* SHOWS */
+.shows-hero{
+  position:relative;padding:5rem 3rem;overflow:hidden;background:#0d0b1a;
+}
+.shows-lights{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;}
+.shows-light-l{position:absolute;top:0;left:15%;width:30%;height:100%;background:conic-gradient(from -8deg at 50% 0%,transparent,rgba(255,180,60,0.05) 20deg,transparent 40deg);filter:blur(8px);}
+.shows-light-r{position:absolute;top:0;right:10%;width:30%;height:100%;background:conic-gradient(from -8deg at 50% 0%,transparent,rgba(176,106,255,0.06) 18deg,transparent 36deg);filter:blur(8px);}
+.shows-content{position:relative;z-index:2;max-width:900px;}
+.show-card{
+  background:rgba(255,255,255,0.02);border:1px solid rgba(232,228,240,0.08);
+  padding:2.5rem;display:flex;align-items:center;gap:4rem;margin-bottom:1rem;
+  backdrop-filter:blur(4px);transition:border-color 0.2s;
+}
+.show-card:hover{border-color:rgba(176,106,255,0.3);}
+.show-dt{font-family:'Anton',sans-serif;font-size:3.5rem;letter-spacing:0.04em;color:#e8e4f0;line-height:0.9;flex-shrink:0;text-align:center;}
+.show-mo{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(176,106,255,0.7);margin-top:0.3rem;display:block;}
+.show-info{flex:1;}
+.show-venue{font-family:'Anton',sans-serif;font-size:1.8rem;letter-spacing:0.06em;color:#e8e4f0;}
+.show-loc{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(232,228,240,0.3);margin-top:0.4rem;}
+.tba-pill{
+  font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;
+  border:1px solid rgba(176,106,255,0.2);color:rgba(176,106,255,0.5);
+  padding:0.6rem 1.2rem;flex-shrink:0;
+}
+
+.book-banner{
+  margin-top:4rem;background:linear-gradient(135deg,rgba(176,106,255,0.12),rgba(100,60,200,0.08));
+  border:1px solid rgba(176,106,255,0.15);
+  padding:3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;
+}
+.book-text{font-family:'Anton',sans-serif;font-size:2rem;letter-spacing:0.06em;color:#e8e4f0;}
+.book-sub{font-size:0.75rem;color:rgba(232,228,240,0.4);margin-top:0.3rem;}
+
+/* CONTACT */
+.contact-inner{max-width:1000px;margin:0 auto;}
+.contact-cols{display:grid;grid-template-columns:1fr 1fr;gap:5rem;}
+.c-heading{font-family:'Anton',sans-serif;font-size:1rem;letter-spacing:0.15em;color:rgba(176,106,255,0.5);margin-bottom:1.5rem;text-transform:uppercase;}
+.c-email{font-size:1rem;color:#e8e4f0;text-decoration:none;display:block;margin-bottom:0.3rem;border-bottom:1px solid rgba(232,228,240,0.08);padding-bottom:1rem;transition:border-color 0.2s;}
+.c-email:hover{border-color:#b06aff;}
+.c-desc{font-size:0.72rem;color:rgba(232,228,240,0.25);margin-bottom:2rem;letter-spacing:0.05em;}
+.socials{display:flex;gap:1.5rem;margin-top:2rem;}
+.soc{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(232,228,240,0.25);text-decoration:none;transition:color 0.2s;}
+.soc:hover{color:#b06aff;}
+
+label{display:block;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(176,106,255,0.5);margin-bottom:0.4rem;}
+input,select,textarea{
+  width:100%;background:rgba(232,228,240,0.03);border:1px solid rgba(232,228,240,0.08);
+  color:#e8e4f0;padding:0.85rem 1rem;font-size:0.85rem;font-family:'Inter',sans-serif;
+  outline:none;transition:border-color 0.2s;margin-bottom:1.2rem;
+}
+input:focus,select:focus,textarea:focus{border-color:#b06aff;}
+textarea{resize:none;height:7rem;}
+select option{background:#0d0b1a;}
+.submit{
+  background:#b06aff;color:#07060f;border:none;cursor:pointer;width:100%;
+  padding:1rem;font-family:'Inter',sans-serif;font-size:0.65rem;letter-spacing:0.2em;
+  text-transform:uppercase;font-weight:600;transition:all 0.2s;
+}
+.submit:hover{background:#c484ff;box-shadow:0 0 30px rgba(176,106,255,0.3);}
+
+/* FOOTER */
+footer{
+  padding:2.5rem 3rem;border-top:1px solid rgba(232,228,240,0.05);
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+}
+.f-logo{font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:0.12em;color:rgba(232,228,240,0.2);text-decoration:none;}
+.f-logo span{color:rgba(176,106,255,0.4);}
+.f-copy{font-size:0.62rem;letter-spacing:0.1em;color:rgba(232,228,240,0.15);}
+
+@media(max-width:768px){
+  nav{padding:1rem 1.2rem;}
+  .nav-links a:not(.nav-cta){display:none;}
+  .hero{padding:0 1.2rem 4rem;}
+  .section,.shows-hero{padding:5rem 1.2rem;}
+  .about-wrap,.music-layout,.contact-cols{grid-template-columns:1fr;}
+  .show-card{flex-direction:column;gap:1.5rem;text-align:center;}
+  .stats-row{flex-direction:column;}
+  .stat{border-right:none;border-bottom:1px solid rgba(232,228,240,0.06);}
+  .book-banner{flex-direction:column;text-align:center;}
+  footer{padding:2rem 1.2rem;flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">DESIRE <span>X</span></a>
+  <div class="nav-links">
+    <a href="#about">About</a><a href="#music">Music</a><a href="#shows">Shows</a>
+    <a href="#contact" class="nav-cta">Book</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="lights">
+    <div class="light light-1"></div>
+    <div class="light light-2"></div>
+    <div class="light light-3"></div>
+    <div class="light light-4"></div>
+  </div>
+  <div class="hero-photo">
+    <img src="https://i.scdn.co/image/ab6761610000e5eb0291c4c014b55584b0c8810d" alt="">
+  </div>
+  <div class="haze"></div>
+  <div class="stage-floor"></div>
+  <div class="hero-content">
+    <p class="h-label">Electronic Press Kit · Bristol, UK</p>
+    <h1 class="hero-name">DESIRE <span class="x">X</span></h1>
+    <div class="hero-tagline">
+      Alt Rock <span class="tag-dot"></span> Bristol UK <span class="tag-dot"></span> Follow the Journey
+    </div>
+    <div class="hero-actions">
+      <a href="https://open.spotify.com/artist/45K51OH61Q78kAmZQVqwO4" target="_blank" class="btn btn-purple">Listen on Spotify</a>
+      <a href="https://www.youtube.com/@desirexofficial" target="_blank" class="btn btn-ghost">Watch on YouTube</a>
+      <a href="#contact" class="btn btn-ghost">Book Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="about-wrap">
+    <div class="about-visual">
+      <div class="photo-glow"></div>
+      <img src="https://i.scdn.co/image/ab6761610000e5eb0291c4c014b55584b0c8810d" alt="Desire X">
+    </div>
+    <div>
+      <p class="s-pre">About</p>
+      <h2 class="s-title">THE<br>STORY</h2>
+      <div class="about-text">
+        <p>Desire X is an alt rock act out of <em>Bristol, UK</em> — built on raw energy, direct songwriting, and the kind of live presence that makes rooms pay attention.</p>
+        <p>With tracks like <em>Break the Chain</em>, <em>Warrior</em>, and <em>Repair</em> accumulating over <em>7,000 monthly listeners</em> on Spotify, Desire X are steadily building an audience that follows the journey from first riff to last note.</p>
+        <p>We'll take good care of you.</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-n">7.1K</div><div class="stat-l">Monthly Listeners</div></div>
+        <div class="stat"><div class="stat-n">1.1K</div><div class="stat-l">Instagram</div></div>
+        <div class="stat"><div class="stat-n">5+</div><div class="stat-l">Tracks</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section class="section music-bg" id="music">
+  <p class="s-pre">Discography</p>
+  <h2 class="s-title">MUSIC</h2>
+  <div class="music-layout">
+    <div class="tracks">
+      <div class="track"><span class="t-num">01</span><div><div class="t-name">Break the Chain</div><div class="t-sub">Single</div></div><a href="https://open.spotify.com/track/1IBM8JHX8JQG0LDVkCzQoV" target="_blank" class="t-play">Play →</a></div>
+      <div class="track"><span class="t-num">02</span><div><div class="t-name">Repair</div><div class="t-sub">Single</div></div><a href="https://open.spotify.com/track/59UHKsTe5mLPbHijgsJSJb" target="_blank" class="t-play">Play →</a></div>
+      <div class="track"><span class="t-num">03</span><div><div class="t-name">Remade</div><div class="t-sub">Single</div></div><a href="https://open.spotify.com/track/0QYeWQRnuxtBjenh7c2sa3" target="_blank" class="t-play">Play →</a></div>
+      <div class="track"><span class="t-num">04</span><div><div class="t-name">No Miracle</div><div class="t-sub">Single</div></div><a href="https://open.spotify.com/track/7oU99XtvxsJly7FQ5Er0XI" target="_blank" class="t-play">Play →</a></div>
+      <div class="track"><span class="t-num">05</span><div><div class="t-name">Warrior</div><div class="t-sub">Single</div></div><a href="https://open.spotify.com/track/0TzSE5laQfxrol4z3tyhVI" target="_blank" class="t-play">Play →</a></div>
+    </div>
+    <iframe src="https://open.spotify.com/embed/artist/45K51OH61Q78kAmZQVqwO4?utm_source=generator&theme=0" width="100%" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Desire X on Spotify" style="border-radius:8px;display:block;"></iframe>
+  </div>
+</section>
+
+<!-- SHOWS -->
+<section class="shows-hero" id="shows">
+  <div class="shows-lights">
+    <div class="shows-light-l"></div>
+    <div class="shows-light-r"></div>
+  </div>
+  <div class="shows-content">
+    <p class="s-pre">Live</p>
+    <h2 class="s-title">SHOWS</h2>
+    <div class="show-card">
+      <div class="show-dt">18<span class="show-mo">Jul</span></div>
+      <div class="show-info">
+        <div class="show-venue">THE FLEECE</div>
+        <div class="show-loc">Bristol, UK</div>
+      </div>
+      <span class="tba-pill">Tickets TBA</span>
+    </div>
+    <div class="book-banner">
+      <div>
+        <div class="book-text">BOOK DESIRE X</div>
+        <div class="book-sub">Headline slots · Support tours · Festivals · Private events</div>
+      </div>
+      <a href="#contact" class="btn btn-purple">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="contact-inner">
+    <p class="s-pre">Get in Touch</p>
+    <h2 class="s-title">CONTACT</h2>
+    <div class="contact-cols">
+      <div>
+        <div class="c-heading">Booking</div>
+        <a href="mailto:booking@desirex.com" class="c-email">booking@desirex.com</a>
+        <p class="c-desc">Live bookings, tours & festivals</p>
+        <div class="c-heading">Press & Media</div>
+        <a href="mailto:press@desirex.com" class="c-email">press@desirex.com</a>
+        <p class="c-desc">Interviews & hi-res assets</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/desirexofficial/" target="_blank" class="soc">Instagram</a>
+          <a href="https://www.youtube.com/@desirexofficial" target="_blank" class="soc">YouTube</a>
+          <a href="https://open.spotify.com/artist/45K51OH61Q78kAmZQVqwO4" target="_blank" class="soc">Spotify</a>
+        </div>
+      </div>
+      <form>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div><label>Name</label><input type="text" placeholder="Your name"></div>
+          <div><label>Email</label><input type="email" placeholder="your@email.com"></div>
+        </div>
+        <label>Subject</label>
+        <select><option>Booking Inquiry</option><option>Press / Interview</option><option>Collaboration</option><option>General</option></select>
+        <label>Message</label>
+        <textarea placeholder="Your message..."></textarea>
+        <button class="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="f-logo">DESIRE <span>X</span></a>
+  <span class="f-copy">© 2025 Desire X. All rights reserved.</span>
+</footer>
+
+</body>
+</html>

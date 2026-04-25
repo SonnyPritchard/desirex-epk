@@ -23,28 +23,24 @@ export default function Hero() {
         }}
       />
 
-      {/* Artist photo as hero background */}
-      <div className="absolute inset-0 opacity-25">
-        <img src="/assets/artist-photo.jpg" className="w-full h-full object-cover object-top" alt="" />
+      {/* Hero background image */}
+      <div className="absolute inset-0 opacity-30">
+        <img src="/assets/hero-bg.jpg" className="w-full h-full object-cover object-center" alt="" />
       </div>
 
       {/* Vignette */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
       {/* Content */}
-      <div className="relative z-10 px-6 max-w-5xl mx-auto">
-        {/* Genre tag */}
-        <p className="text-xs tracking-ultra uppercase text-red-500 mb-6 font-medium">
-          Electronic Press Kit
-        </p>
-
-        {/* Artist name */}
-        <h1
-          className="font-display text-[clamp(4rem,15vw,12rem)] leading-none tracking-ultra text-white mb-2"
-          style={{ textShadow: '0 0 80px rgba(185,28,28,0.4)' }}
-        >
-          DESIRE X
-        </h1>
+      <div className="relative z-10 px-6 max-w-6xl mx-auto">
+        {/* Artist header */}
+        <div className="mx-auto mb-5 flex justify-center px-2 pt-6 sm:px-4 sm:pt-8">
+          <img
+            src="/assets/desirex-header.png"
+            alt="Desire X"
+            className="block w-full max-w-[980px] h-auto object-contain drop-shadow-[0_0_40px_rgba(255,255,255,0.08)] pointer-events-none select-none"
+          />
+        </div>
 
         {/* Tagline */}
         <p className="text-zinc-400 text-sm md:text-base tracking-widest uppercase mb-3 font-light">

@@ -4,14 +4,18 @@ export default function About() {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Artist photo */}
-          <div className="relative order-2 md:order-1">
-            <img
-              src="/assets/artist-photo.jpg"
-              alt="Desire X"
-              className="w-full aspect-[3/4] object-cover object-top"
-            />
-            {/* Decorative border accent */}
-            <div className="absolute -bottom-3 -right-3 w-full h-full border border-red-900/40 pointer-events-none" />
+          <div className="order-2 md:order-1">
+            <div className="mx-auto w-full max-w-[28rem] lg:max-w-[30rem] p-[10px]">
+              <img
+                src="/assets/artist-photo.jpg"
+                alt="Desire X"
+                className="block w-full aspect-[3/4] object-cover object-top"
+                style={{
+                  outline: '1px solid rgba(127, 29, 29, 0.4)',
+                  outlineOffset: '10px',
+                }}
+              />
+            </div>
           </div>
 
           {/* Bio text */}

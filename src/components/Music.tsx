@@ -13,9 +13,9 @@ export default function Music() {
   const activeTrack = tracks[activeIndex]
 
   return (
-    <section id="music" className="py-28 px-6 bg-black">
+    <section id="music" className="py-16 md:py-28 px-6 bg-black">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <p className="text-xs tracking-ultra uppercase text-red-500 mb-4">Discography</p>
           <h2 className="font-display text-5xl md:text-7xl text-white mb-4 leading-none">MUSIC</h2>
           <div className="section-divider" />

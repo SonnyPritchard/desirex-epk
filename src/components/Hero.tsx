@@ -50,12 +50,12 @@ export default function Hero() {
         <div className="w-16 h-px bg-red-700 mx-auto mb-10" />
 
         {/* CTAs */}
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4">
           <a
             href="https://open.spotify.com/artist/45K51OH61Q78kAmZQVqwO4"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary px-8 py-3.5 bg-red-700 hover:bg-red-600 text-white text-xs tracking-widest uppercase font-medium transition-colors"
+            className="btn-primary w-full sm:w-auto justify-center px-8 py-3.5 bg-red-700 hover:bg-red-600 text-white text-xs tracking-widest uppercase font-medium transition-colors text-center"
           >
             Listen on Spotify
           </a>
@@ -63,13 +63,13 @@ export default function Hero() {
             href="https://www.youtube.com/@desirexofficial"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3.5 border border-white/20 hover:border-white/60 text-white text-xs tracking-widest uppercase font-medium transition-all hover:bg-white/5"
+            className="w-full sm:w-auto px-8 py-3.5 border border-white/20 hover:border-white/60 text-white text-xs tracking-widest uppercase font-medium transition-all hover:bg-white/5 text-center"
           >
             Watch on YouTube
           </a>
           <a
             href="#contact"
-            className="px-8 py-3.5 border border-red-800/60 hover:border-red-600 text-red-400 hover:text-red-300 text-xs tracking-widest uppercase font-medium transition-all"
+            className="w-full sm:w-auto px-8 py-3.5 border border-red-800/60 hover:border-red-600 text-red-400 hover:text-red-300 text-xs tracking-widest uppercase font-medium transition-all text-center"
           >
             Book / Contact
           </a>

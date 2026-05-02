@@ -24,10 +24,10 @@ const dates: {
 
 export default function Shows() {
   return (
-    <section id="shows" className="py-28 px-6 bg-zinc-950">
+    <section id="shows" className="py-16 md:py-28 px-6 bg-zinc-950">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <p className="text-xs tracking-ultra uppercase text-red-500 mb-4">Tour</p>
           <h2 className="font-display text-5xl md:text-7xl text-white mb-4 leading-none">SHOWS</h2>
           <div className="section-divider" />

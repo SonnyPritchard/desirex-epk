@@ -1,8 +1,8 @@
 export default function About() {
   return (
-    <section id="about" className="py-28 px-6 bg-zinc-950">
+    <section id="about" className="py-16 md:py-28 px-6 bg-zinc-950">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           {/* Artist photo */}
           <div className="order-2 md:order-1">
             <div className="mx-auto w-full max-w-[28rem] lg:max-w-[30rem] p-[10px]">
@@ -43,7 +43,7 @@ export default function About() {
             </div>
 
             {/* Stats row */}
-            <div className="mt-10 pt-8 border-t border-white/5 grid grid-cols-3 gap-4">
+            <div className="mt-10 pt-8 border-t border-white/5 grid grid-cols-3 gap-2 sm:gap-4">
               {[
                 { label: 'Monthly Listeners', value: '7.1K' },
                 { label: 'Instagram', value: '1.1K' },

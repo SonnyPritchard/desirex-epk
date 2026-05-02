@@ -29,9 +29,9 @@ export default function Gallery() {
   const thumbnails = photos.filter((_, index) => index !== activeIndex)
 
   return (
-    <section id="gallery" className="py-28 px-6 bg-black">
+    <section id="gallery" className="py-16 md:py-28 px-6 bg-black">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <p className="text-xs tracking-ultra uppercase text-red-500 mb-4">Live Photos</p>
           <h2 className="font-display text-5xl md:text-7xl text-white mb-4 leading-none">LIVE</h2>
           <div className="section-divider" />

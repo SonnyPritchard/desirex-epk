@@ -28,17 +28,17 @@ const photos: string[] = []
 
 export default function Press() {
   return (
-    <section id="press" className="py-28 px-6 bg-black">
+    <section id="press" className="py-16 md:py-28 px-6 bg-black">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <p className="text-xs tracking-ultra uppercase text-red-500 mb-4">Media</p>
           <h2 className="font-display text-5xl md:text-7xl text-white mb-4 leading-none">PRESS</h2>
           <div className="section-divider" />
         </div>
 
         {/* Press quotes */}
-        <div className="grid md:grid-cols-3 gap-6 mb-20">
+        <div className="grid md:grid-cols-3 gap-6 mb-12 md:mb-20">
           {quotes.map((q, i) => (
             <div
               key={i}

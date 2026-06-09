@@ -26,19 +26,38 @@ export default function About() {
             </h2>
             <div className="section-divider" style={{ margin: '0 0 2rem' }} />
 
+            <blockquote className="border-l-2 border-red-700 pl-5 mb-7">
+              <p className="font-display text-xl md:text-2xl text-white leading-snug italic">
+                "If I die from the weight of my regrets, would I still ascend with a
+                broken soul made up of sins?"
+              </p>
+              <p className="text-xs tracking-widest uppercase text-zinc-500 mt-3">
+                An example of Desire X's emotionally-charged lyrics that resonate and
+                pack a punch with listeners.
+              </p>
+            </blockquote>
+
             <div className="space-y-5 text-zinc-400 leading-relaxed font-light">
               <p>
-                Desire X is an alt rock act out of Bristol, UK — built on raw energy, direct
-                songwriting, and the kind of live presence that makes rooms pay attention.
+                Desire X is an alternative rock band from Bristol, UK. Formed in 2024 by
+                founding member, songwriter and vocalist Adam Castelete, and joined by
+                Mike Castelete (Guitar/Bass), Sonny Pritchard (Guitar), and Sam Rawlings
+                (Drums).
               </p>
               <p>
-                With tracks like <em>Break the Chain</em>, <em>Warrior</em>, and <em>Repair</em>
-                {' '}accumulating over 7,000 monthly listeners on Spotify, Desire X are steadily
-                building an audience that follows the journey from first riff to last note.
+                The four-piece deliver high-energy performances and have a growing
+                catalogue of studio recordings. Their latest track, <em>Break the Chain</em>,
+                {' '}currently has 25,000 streams and <em>Repair</em> over 30,000.
               </p>
               <p>
-                {/* TODO: Expand with full artist biography when available */}
-                We'll take good care of you.
+                The band's recent live shows at The Bristol Fleece and Bristol Exchange
+                have contributed to their growth locally and built a reputation as a
+                hard-hitting live act.
+              </p>
+              <p>
+                With a new single set for June 2026 and imminent live shows in Bristol,
+                Desire X continue to evolve their sound by exploring the balance between
+                intensely passionate vocals, heavy riffs and ambient soundscapes.
               </p>
             </div>
 

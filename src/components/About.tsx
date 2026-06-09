@@ -31,10 +31,6 @@ export default function About() {
                 "If I die from the weight of my regrets, would I still ascend with a
                 broken soul made up of sins?"
               </p>
-              <p className="text-xs tracking-widest uppercase text-zinc-500 mt-3">
-                An example of Desire X's emotionally-charged lyrics that resonate and
-                pack a punch with listeners.
-              </p>
             </blockquote>
 
             <div className="space-y-5 text-zinc-400 leading-relaxed font-light">

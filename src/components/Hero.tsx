@@ -23,9 +23,18 @@ export default function Hero() {
         }}
       />
 
-      {/* Hero background image */}
-      <div className="absolute inset-0 opacity-30">
-        <img src="/assets/hero-bg.jpg" className="w-full h-full object-cover object-center" alt="" />
+      {/* Hero background image — portrait crop on mobile, wide shot on desktop */}
+      <div className="absolute inset-0">
+        <img
+          src="/assets/hero-bg-mobile.jpg"
+          className="md:hidden w-full h-full object-cover object-[center_22%] opacity-50"
+          alt=""
+        />
+        <img
+          src="/assets/hero-bg.jpg"
+          className="hidden md:block w-full h-full object-cover object-center opacity-30"
+          alt=""
+        />
       </div>
 
       {/* Vignette */}

@@ -92,7 +92,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
         <div className="relative z-10 px-6 max-w-6xl mx-auto pb-[12vh]">
-          <div className="mx-auto mb-6 flex justify-center px-4 max-w-[820px]">{wordmark}</div>
+          <div className="mx-auto mb-6 flex justify-center px-4 max-w-[480px] lg:max-w-[560px]">{wordmark}</div>
           <p className="text-zinc-400 text-base tracking-widest uppercase mb-3 font-light">{tagline}</p>
           <div className="w-16 h-px bg-red-700 mx-auto mb-10" />
           {ctas}

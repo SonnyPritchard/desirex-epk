@@ -20,6 +20,14 @@ const dates: {
     ticketUrl: '', // TODO: Add ticket URL when available
     status: 'upcoming',
   },
+  {
+    date: '16 AUG',
+    city: 'Bristol',
+    venue: 'The Fleece',
+    country: 'UK',
+    ticketUrl: '', // TODO: Add ticket URL when available
+    status: 'upcoming',
+  },
 ]
 
 export default function Shows() {

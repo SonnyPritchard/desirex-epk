@@ -6,6 +6,7 @@ const tracks = [
   { title: 'Remade', subtitle: 'Single', spotifyId: '0QYeWQRnuxtBjenh7c2sa3' },
   { title: 'No Miracle', subtitle: 'Single', spotifyId: '7oU99XtvxsJly7FQ5Er0XI' },
   { title: 'Warrior', subtitle: 'Single', spotifyId: '0TzSE5laQfxrol4z3tyhVI' },
+  { title: 'Hold On', subtitle: 'Single', spotifyId: '7DS7BTN9JGIFYZf1ToPVJX' },
 ]
 
 export default function Music() {

@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
 const tracks = [
+  { title: 'Hold On', subtitle: 'Single', spotifyId: '7DS7BTN9JGIFYZf1ToPVJX' },
   { title: 'Break the Chain', subtitle: 'Single', spotifyId: '1IBM8JHX8JQG0LDVkCzQoV' },
   { title: 'Repair', subtitle: 'Single', spotifyId: '59UHKsTe5mLPbHijgsJSJb' },
   { title: 'Remade', subtitle: 'Single', spotifyId: '0QYeWQRnuxtBjenh7c2sa3' },
   { title: 'No Miracle', subtitle: 'Single', spotifyId: '7oU99XtvxsJly7FQ5Er0XI' },
   { title: 'Warrior', subtitle: 'Single', spotifyId: '0TzSE5laQfxrol4z3tyhVI' },
-  { title: 'Hold On', subtitle: 'Single', spotifyId: '7DS7BTN9JGIFYZf1ToPVJX' },
 ]
 
 export default function Music() {

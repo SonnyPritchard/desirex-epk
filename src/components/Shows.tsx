@@ -13,19 +13,11 @@ const dates: {
   status: 'upcoming' | 'sold-out' | 'tba'
 }[] = [
   {
-    date: '18 JUL',
-    city: 'Bristol',
-    venue: 'The Fleece',
-    country: 'UK',
-    ticketUrl: '', // TODO: Add ticket URL when available
-    status: 'upcoming',
-  },
-  {
     date: '16 AUG',
     city: 'Bristol',
     venue: 'The Fleece',
     country: 'UK',
-    ticketUrl: '', // TODO: Add ticket URL when available
+    ticketUrl: 'https://www.eventbrite.co.uk/e/local-showcase-tickets-1991558302494?discount=Desire',
     status: 'upcoming',
   },
 ]

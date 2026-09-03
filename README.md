@@ -90,9 +90,9 @@ Applicant  ──►  desirex.co.uk/drums (GitHub Pages)
 ### One-time setup
 
 **1. Resend** (https://resend.com)
-- Add and verify the domain `desirex.co.uk` (Resend gives you DNS records to add — SPF/DKIM TXT records; add them wherever the domain's DNS lives).
-- Create an API key with sending permission.
+- `desirex.co.uk` is already verified in Resend, so just create an API key with sending permission.
 - Sending from `drums@desirex.co.uk` needs no mailbox — but make sure `drums@desirex.co.uk` exists as an **alias** in Google Workspace so replies and the notifications land in the inbox.
+- Note: the EPK contact form (`src/components/Contact.tsx`) goes through formsubmit.co, not Resend; the two are independent.
 
 **2. Cloudflare** (https://dash.cloudflare.com — free account is fine)
 ```bash

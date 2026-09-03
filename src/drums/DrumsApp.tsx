@@ -90,7 +90,7 @@ export default function DrumsApp() {
                 Hear the Music
               </a>
             </div>
-            <p className="mt-6 text-xs text-zinc-500 tracking-widest uppercase">Takes about 3 minutes · Phone clip is fine</p>
+            <p className="mt-6 text-xs text-zinc-500 tracking-widest uppercase">Takes about 3 minutes · A phone clip is fine</p>
           </div>
 
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 opacity-40 pointer-events-none">
@@ -205,7 +205,7 @@ export default function DrumsApp() {
               <h2 className="font-display text-5xl md:text-7xl text-white leading-none mb-4">SHOW US WHAT YOU'VE GOT</h2>
               <div className="section-divider" />
               <p className="text-zinc-400 font-light leading-relaxed max-w-xl mx-auto">
-                Fill this in, drop a link or upload a clip, and we'll get back to you. Shortlisted
+                Fill this in, drop a link to you playing, and we'll get back to you. Shortlisted
                 drummers get a few tracks to learn and a jam in Bristol.
               </p>
             </div>

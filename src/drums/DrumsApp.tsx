@@ -14,18 +14,18 @@ const facts = [
 ]
 
 const lookingFor = [
-  'Hard-hitting and tight. Modern metal weight with alt rock feel — dynamics matter as much as power.',
-  'Locked in with a click and confident with backing tracks and samples live.',
-  'Based in or around Bristol (or willing to travel) for regular rehearsals and gigs.',
-  'Own kit and a way to get it to shows.',
-  'Up for writing, recording and playing hard to grow this thing together.',
+  'Hits hard and stays tight. We want metal weight with an alt rock feel, so dynamics matter as much as power.',
+  'Comfortable playing to a click and running backing tracks live.',
+  'Based in or around Bristol, or happy to travel in for rehearsals and gigs.',
+  'Has your own kit and a way to get it to shows.',
+  'Keen to write, record and gig hard with us.',
 ]
 
 const whatYouGet = [
   'A working band with released music, a growing audience and shows already on the calendar.',
-  'New music in the pipeline — you’d be drumming on the next records, not just the old ones.',
-  'A tight, committed group of people who take the music seriously and the rest of it less so.',
-  'Proper live rooms: recent shows at The Fleece and Exchange in Bristol, with more booked.',
+  'New music on the way. You’d be playing on what comes next, not just learning the old stuff.',
+  'A tight group who take the music seriously and not much else.',
+  'Real rooms. We’ve played The Fleece and Exchange in Bristol recently, with more booked.',
 ]
 
 export default function DrumsApp() {
@@ -73,8 +73,8 @@ export default function DrumsApp() {
               <span className="text-red-600">A DRUMMER</span>
             </h1>
             <p className="mt-6 text-zinc-300 text-base md:text-lg font-light max-w-2xl mx-auto leading-relaxed">
-              Our drummer has moved on and the calendar hasn't. Releases, shows and rehearsals are
-              rolling — we're looking for someone who hits hard and wants to build something.
+              Our drummer's just left and the calendar hasn't slowed down. We've got releases, shows
+              and rehearsals lined up, and we need someone who hits hard and wants to build this with us.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
@@ -159,8 +159,8 @@ export default function DrumsApp() {
               <h2 className="font-display text-4xl md:text-5xl text-white leading-none mb-6">HEAR IT FIRST</h2>
               <div className="section-divider" style={{ margin: '0 0 1.5rem' }} />
               <p className="text-zinc-400 font-light leading-relaxed mb-6">
-                Have a listen before you apply. If you want to send a clip of you playing one of ours,
-                even better — but it's not required.
+                Have a listen before you apply. Send us a clip of you playing one of ours if you fancy
+                it, though it's not required.
               </p>
               <div className="flex flex-col gap-3">
                 {[

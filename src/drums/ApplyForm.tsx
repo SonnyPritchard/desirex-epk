@@ -100,7 +100,7 @@ export default function ApplyForm() {
           </div>
           <div>
             <label htmlFor="phone" className={labelClass}>Phone</label>
-            <input id="phone" name="phone" type="tel" maxLength={40} autoComplete="tel" placeholder="Optional — quickest way to reach you" className={inputClass} />
+            <input id="phone" name="phone" type="tel" maxLength={40} autoComplete="tel" placeholder="Optional, but it's the quickest way to reach you" className={inputClass} />
           </div>
           <div>
             <label htmlFor="location" className={labelClass}>Where are you based? *</label>
@@ -135,8 +135,8 @@ export default function ApplyForm() {
       <fieldset className="space-y-4">
         <legend className="text-xs tracking-ultra uppercase text-red-500 mb-4">2 · Show Us You Play</legend>
         <p className="text-sm text-zinc-500 leading-relaxed -mt-1">
-          A phone clip is fine. Ideally 60–90 seconds of you playing something heavy — one of our tracks
-          if you're feeling it, but anything that shows your feel and power works.
+          A phone clip is fine. Ideally 60 to 90 seconds of you playing something heavy, one of our
+          tracks if you're feeling it, but anything that shows your feel and power works.
         </p>
         <div>
           <label htmlFor="links" className={labelClass}>Links to you playing *</label>
@@ -151,7 +151,7 @@ export default function ApplyForm() {
           />
           <p className="text-xs text-zinc-600 mt-2 leading-relaxed">
             Got a video on your phone? Upload it to YouTube (set it to Unlisted), Google Drive, Dropbox or
-            WeTransfer and paste the link. Instagram or TikTok posts work too — just make sure they're public.
+            WeTransfer and paste the link. Instagram or TikTok posts work too, just make sure they're public.
           </p>
         </div>
       </fieldset>

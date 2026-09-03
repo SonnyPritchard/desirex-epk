@@ -1,0 +1,18 @@
+{
+  "name": "desirex-apply-worker",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Cloudflare Worker that receives Desire X drummer applications, stores uploads in R2 and emails the band via Resend.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260831.1",
+    "typescript": "~5.9.2",
+    "wrangler": "^4.128.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "desirex-apply",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-09-01",
+  "observability": { "enabled": true },
+
+  // Applications (JSON) and uploaded clips live here. Create it once with:
+  //   npx wrangler r2 bucket create desirex-applications
+  "r2_buckets": [
+    { "binding": "APPLICATIONS", "bucket_name": "desirex-applications" }
+  ],
+
+  // Non-secret config. Secrets (RESEND_API_KEY) are set with `wrangler secret put`.
+  "vars": {
+    // Must be on a domain verified in Resend (desirex.co.uk).
+    "FROM_EMAIL": "Desire X <drums@desirex.co.uk>",
+    // Where applications are sent. Any @desirex.co.uk alias works with Google Workspace.
+    "NOTIFY_EMAIL": "drums@desirex.co.uk",
+    // Browsers allowed to POST to this worker (comma separated).
+    "ALLOWED_ORIGINS": "https://desirex.co.uk,https://www.desirex.co.uk,http://localhost:5173,http://localhost:4173"
+  }
+
+  // Optional: serve the worker from your own domain (zone must be on Cloudflare).
+  // "routes": [{ "pattern": "apply.desirex.co.uk", "custom_domain": true }]
+}

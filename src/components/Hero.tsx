@@ -48,7 +48,7 @@ export default function Hero() {
         <div className="relative">
           <img
             src="/assets/hero-bg.jpg"
-            alt="Desire X — Adam Castelete, Mike Castelete, Sonny Pritchard, Sam Rawlings"
+            alt="Desire X live"
             className="block w-full object-cover"
             style={{ filter: 'brightness(1.32) contrast(1.03)' }}
           />

@@ -68,6 +68,26 @@ Add `<meta property="og:image" content="/assets/og-image.jpg" />` once you have 
 
 ---
 
+## Booking one-pager (PDF)
+
+`public/assets/Desire-X-Press-Kit.pdf` is a single-page A4 press kit for emailing
+to venues, promoters and festivals. Once deployed it's also linked at
+`https://desirex.co.uk/assets/Desire-X-Press-Kit.pdf` — useful because several
+venues (The Fleece among them) ask bands not to send attachments.
+
+Regenerate it after updating stats, the track list or photos:
+
+```bash
+python3 press-kit/build.py      # needs Pillow + a Chromium binary
+```
+
+Copy lives in the `HTML` template inside `press-kit/build.py`. The stats row,
+discography and the "Played" line are the parts that date fastest. The script
+fails if the content no longer fits on one page, so trim rather than let it
+spill onto a second.
+
+---
+
 ## Drummer recruitment page — `/drums` (alias `/apply`)
 
 A standalone landing page for Meta ads with a lead capture form:

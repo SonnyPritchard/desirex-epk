@@ -1,8 +1,8 @@
 import { MapPin, Calendar, ExternalLink } from 'lucide-react'
 
 /*
-  TODO: Replace the dates array with real tour/show dates.
-  Set ticketUrl to the actual ticket link, or leave '' to show "TBA".
+  Add upcoming shows here. Set ticketUrl to the ticket link, or leave '' to show "TBA".
+  Remove dates once they've passed — a listed date in the past reads worse than an empty diary.
 */
 const dates: {
   date: string
@@ -11,16 +11,7 @@ const dates: {
   country: string
   ticketUrl: string
   status: 'upcoming' | 'sold-out' | 'tba'
-}[] = [
-  {
-    date: '16 AUG',
-    city: 'Bristol',
-    venue: 'The Fleece',
-    country: 'UK',
-    ticketUrl: 'https://www.eventbrite.co.uk/e/local-showcase-tickets-1991558302494?discount=Desire',
-    status: 'upcoming',
-  },
-]
+}[] = []
 
 export default function Shows() {
   return (
@@ -84,9 +75,17 @@ export default function Shows() {
             ))}
           </div>
         ) : (
-          <p className="text-center text-zinc-600 tracking-widest uppercase text-sm">
-            No shows listed yet — check back soon.
-          </p>
+          <div className="text-center">
+            <p className="text-zinc-500 text-sm mb-6">
+              No dates in the diary right now — we're booking.
+            </p>
+            <a
+              href="mailto:booking@desirex.co.uk"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-red-700 hover:bg-red-600 text-white text-xs tracking-widest uppercase transition-colors"
+            >
+              Book Desire X
+            </a>
+          </div>
         )}
 
       </div>

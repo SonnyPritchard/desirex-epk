@@ -46,8 +46,8 @@ export default function About() {
               </p>
               <p>
                 The band deliver high-energy performances and have a growing
-                catalogue of studio recordings. Their latest track, <em>Break the Chain</em>,
-                {' '}currently has 25,000 streams and <em>Repair</em> over 30,000.
+                catalogue of studio recordings. <em>Break the Chain</em> has passed
+                25,000 streams and <em>Repair</em> over 30,000.
               </p>
               <p>
                 The band's recent live shows at The Bristol Fleece and Bristol Exchange
@@ -55,9 +55,9 @@ export default function About() {
                 hard-hitting live act.
               </p>
               <p>
-                With a new single set for June 2026 and imminent live shows in Bristol,
-                Desire X continue to evolve their sound by exploring the balance between
-                intensely passionate vocals, heavy riffs and ambient soundscapes.
+                Desire X continue to evolve their sound by exploring the balance
+                between intensely passionate vocals, heavy riffs and ambient
+                soundscapes, with new material in the works.
               </p>
             </div>
 

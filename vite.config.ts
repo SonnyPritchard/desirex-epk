@@ -7,11 +7,14 @@ import react from '@vitejs/plugin-react'
 const root = dirname(fileURLToPath(import.meta.url))
 
 /**
- * The drummer recruitment landing page lives at /drums (alias /apply).
- * It is a second Vite entry (drums.html) so it gets its own <title> and
- * Open Graph tags for the Meta ad link preview. GitHub Pages is static, so
- * after the build we place a copy at dist/drums/index.html and
- * dist/apply/index.html — both URLs then return a real 200.
+ * /drums (alias /apply) used to be the drummer recruitment landing page. The
+ * band are a full four-piece now, so drums.html is a redirect to the homepage:
+ * the URLs stay alive for old Meta ad links and shares instead of 404ing.
+ *
+ * It stays a second Vite entry because GitHub Pages is static and serves
+ * directories from index.html — after the build we place a copy at
+ * dist/drums/index.html and dist/apply/index.html so both URLs return a real
+ * 200 and redirect, rather than hitting the 404 page.
  */
 const LANDING_ENTRY = 'drums.html'
 const LANDING_ROUTES = ['drums', 'apply']

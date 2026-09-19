@@ -37,12 +37,14 @@ export default function About() {
               <p>
                 Desire X is an alternative rock band from Bristol, UK. Formed in 2024 by
                 founding member, songwriter and vocalist Adam Castelete, and joined by
-                Mike Castelete (Guitar/Bass) and Sonny Pritchard (Guitar).
+                Mike Castelete (Guitar/Bass) and Sonny Pritchard (Guitar), the band now
+                perform as a full four-piece.
               </p>
               <p>
                 The band deliver high-energy performances and have a growing
-                catalogue of studio recordings. Their latest track, <em>Break the Chain</em>,
-                {' '}currently has 25,000 streams and <em>Repair</em> over 30,000.
+                catalogue of studio recordings. Their latest single is <em>Hold On</em>,
+                {' '}following <em>Break the Chain</em>, which has 25,000 streams, and{' '}
+                <em>Repair</em>, with over 30,000.
               </p>
               <p>
                 The band's recent live shows at The Bristol Fleece and Bristol Exchange
@@ -58,11 +60,10 @@ export default function About() {
             </div>
 
             {/* Stats row */}
-            <div className="mt-10 pt-8 border-t border-white/5 grid grid-cols-3 gap-2 sm:gap-4">
+            <div className="mt-10 pt-8 border-t border-white/5 grid grid-cols-2 gap-2 sm:gap-4">
               {[
                 { label: 'Monthly Listeners', value: '7.1K' },
                 { label: 'Instagram', value: '1.1K' },
-                { label: 'Tracks on Spotify', value: '5+' },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="font-display text-3xl text-red-500">{stat.value}</p>

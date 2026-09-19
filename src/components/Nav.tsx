@@ -7,6 +7,7 @@ const links = [
   { label: 'Video', href: '#video' },
   { label: 'Live', href: '#gallery' },
   { label: 'Shows', href: '#shows' },
+  { label: 'Booking', href: '#booking' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -43,7 +44,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="#booking"
             className="ml-4 px-5 py-2 border border-red-700 text-red-500 text-xs tracking-widest uppercase hover:bg-red-700 hover:text-white transition-all"
           >
             Book Now
@@ -74,7 +75,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="#booking"
             onClick={() => setOpen(false)}
             className="mt-2 px-5 py-3 border border-red-700 text-red-500 text-xs tracking-widest uppercase text-center hover:bg-red-700 hover:text-white transition-all"
           >

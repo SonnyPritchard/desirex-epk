@@ -44,7 +44,7 @@ export default function Hero() {
       <div className="md:hidden relative min-h-screen flex flex-col bg-black">
         <div className="absolute inset-0 bg-gradient-to-b from-red-950/30 via-black to-black" />
 
-        {/* Band photo banner — full landscape shot so all four members are visible */}
+        {/* Band photo banner — full frame so all three members are visible */}
         <div className="relative">
           <img
             src="/assets/hero-bg.jpg"

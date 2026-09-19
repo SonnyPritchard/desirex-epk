@@ -52,17 +52,18 @@ export default function About() {
                 hard-hitting live act.
               </p>
               <p>
-                Desire X continue to evolve their sound by exploring the balance between
-                intensely passionate vocals, heavy riffs and ambient soundscapes.
+                With a new single set for release by October and more live shows
+                announcing soon, Desire X continue to evolve their sound by exploring
+                the balance between intensely passionate vocals, heavy riffs and
+                ambient soundscapes.
               </p>
             </div>
 
             {/* Stats row */}
-            <div className="mt-10 pt-8 border-t border-white/5 grid grid-cols-3 gap-2 sm:gap-4">
+            <div className="mt-10 pt-8 border-t border-white/5 grid grid-cols-2 gap-2 sm:gap-4">
               {[
                 { label: 'Monthly Listeners', value: '7.1K' },
                 { label: 'Instagram', value: '1.1K' },
-                { label: 'Tracks on Spotify', value: '5+' },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="font-display text-3xl text-red-500">{stat.value}</p>

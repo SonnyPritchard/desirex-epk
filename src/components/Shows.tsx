@@ -124,7 +124,7 @@ export default function Shows() {
         ) : (
           <div className="max-w-4xl mx-auto text-center border border-white/5 bg-black/30 p-8">
             <p className="text-zinc-400 text-sm leading-relaxed">
-              Next run of dates is being booked now.
+              Announcing soon.
             </p>
             <a
               href="#contact"

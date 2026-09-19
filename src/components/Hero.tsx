@@ -80,11 +80,13 @@ export default function Hero() {
             backgroundSize: '80px 80px',
           }}
         />
-        {/* brightened full-bleed band photo */}
+        {/* brightened full-bleed band photo.
+            The shot is near-square, so a wide viewport crops it hard top and bottom.
+            Anchoring at 20% keeps the faces below the nav instead of cutting them off. */}
         <div className="absolute inset-0 opacity-60">
           <img
             src="/assets/hero-bg.jpg"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-[50%_20%]"
             style={{ filter: 'brightness(1.35) contrast(1.04)' }}
             alt=""
           />

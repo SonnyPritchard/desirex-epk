@@ -44,12 +44,14 @@ export default function Hero() {
       <div className="md:hidden relative min-h-screen flex flex-col bg-black">
         <div className="absolute inset-0 bg-gradient-to-b from-red-950/30 via-black to-black" />
 
-        {/* Band photo banner — full frame so all three members are visible */}
+        {/* Band photo banner — all three members visible.
+            The file is wide so the desktop hero doesn't have to zoom into it; a square
+            crop here trims that extra backdrop back off so the band still fills the banner. */}
         <div className="relative">
           <img
             src="/assets/hero-bg.jpg"
             alt="Desire X live"
-            className="block w-full object-cover"
+            className="block w-full aspect-square object-cover object-center"
             style={{ filter: 'brightness(1.32) contrast(1.03)' }}
           />
           {/* fade the photo into the dark content area */}

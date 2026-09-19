@@ -11,16 +11,7 @@ const dates: {
   country: string
   ticketUrl: string
   status: 'upcoming' | 'sold-out' | 'tba'
-}[] = [
-  {
-    date: '16 AUG',
-    city: 'Bristol',
-    venue: 'The Fleece',
-    country: 'UK',
-    ticketUrl: 'https://www.eventbrite.co.uk/e/local-showcase-tickets-1991558302494?discount=Desire',
-    status: 'upcoming',
-  },
-]
+}[] = []
 
 export default function Shows() {
   return (
@@ -85,7 +76,7 @@ export default function Shows() {
           </div>
         ) : (
           <p className="text-center text-zinc-600 tracking-widest uppercase text-sm">
-            No shows listed yet — check back soon.
+            Announcing soon
           </p>
         )}
 

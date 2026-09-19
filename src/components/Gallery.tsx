@@ -5,7 +5,12 @@ type Photo = {
   alt: string
 }
 
+// The featured shot is whichever photo leads this list.
 const photos: Photo[] = [
+  {
+    src: '/assets/gallery/live-6.jpg',
+    alt: 'Desire X full band on stage, vocalist front and centre under green and white lights',
+  },
   {
     src: '/assets/gallery/live-1.jpg',
     alt: 'Desire X live performance photo 1',
@@ -25,10 +30,6 @@ const photos: Photo[] = [
   {
     src: '/assets/gallery/live-5.jpg',
     alt: 'Desire X live performance photo 5',
-  },
-  {
-    src: '/assets/gallery/live-6.jpg',
-    alt: 'Desire X full band on stage, vocalist front and centre under green and white lights',
   },
   {
     src: '/assets/gallery/live-7.jpg',

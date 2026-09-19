@@ -42,8 +42,9 @@ export default function About() {
               </p>
               <p>
                 The band deliver high-energy performances and have a growing
-                catalogue of studio recordings. Their latest track, <em>Break the Chain</em>,
-                {' '}currently has 25,000 streams and <em>Repair</em> over 30,000.
+                catalogue of studio recordings. Their latest single is <em>Hold On</em>,
+                {' '}following <em>Break the Chain</em>, which has 25,000 streams, and{' '}
+                <em>Repair</em>, with over 30,000.
               </p>
               <p>
                 The band's recent live shows at The Bristol Fleece and Bristol Exchange

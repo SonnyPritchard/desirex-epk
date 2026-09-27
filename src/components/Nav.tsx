@@ -5,6 +5,7 @@ const links = [
   { label: 'About', href: '#about' },
   { label: 'Music', href: '#music' },
   { label: 'Video', href: '#video' },
+  { label: 'Footage', href: '#live-footage' },
   { label: 'Live', href: '#gallery' },
   { label: 'Shows', href: '#shows' },
   { label: 'Booking', href: '#booking' },

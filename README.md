@@ -92,6 +92,7 @@ src/
     About.tsx       bio + artist photo + stats
     Music.tsx       Spotify embed + 5 real tracks
     Video.tsx       YouTube embeds (IDs needed)
+    LiveFootage.tsx self-hosted live clips (public/assets/live/)
     Press.tsx       press photo grid (hidden until photos are added)
     Shows.tsx       tour dates, auto-split into upcoming / past
     Booking.tsx     booking + technical details for promoters

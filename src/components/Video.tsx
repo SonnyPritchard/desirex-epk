@@ -1,15 +1,15 @@
 import { ExternalLink, Play } from 'lucide-react'
 
 const featuredVideo = {
-  title: 'Break The Chain',
+  title: 'The Edge',
   subtitle: 'Official Music Video',
-  videoId: 'ED2_oCE2nwk',
-  youtubeUrl: 'https://www.youtube.com/watch?v=ED2_oCE2nwk',
+  videoId: 'Jaq05s5-mjY',
+  youtubeUrl: 'https://www.youtube.com/watch?v=Jaq05s5-mjY',
 }
 
 export default function Video() {
   return (
-    <section id="video" className="py-16 md:py-28 px-6 bg-zinc-950">
+    <section id="video" className="py-16 md:py-28 px-6 bg-black">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-10 md:mb-16">

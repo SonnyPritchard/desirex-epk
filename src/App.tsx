@@ -17,9 +17,9 @@ function App() {
       <Nav />
       <main>
         <Hero />
+        <Video />
         <About />
         <Music />
-        <Video />
         <Gallery />
         <Press />
         <Shows />

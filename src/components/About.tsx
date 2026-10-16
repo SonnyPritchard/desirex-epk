@@ -49,7 +49,8 @@ export default function About() {
               <p>
                 The band's recent live shows at The Bristol Fleece and Bristol Exchange
                 have contributed to their growth locally and built a reputation as a
-                hard-hitting live act.
+                hard-hitting live act. They have also been featured on BBC Introducing
+                South West.
               </p>
               <p>
                 With a new single set for release by October and more live shows

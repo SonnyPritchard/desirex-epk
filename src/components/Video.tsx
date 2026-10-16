@@ -7,6 +7,31 @@ const featuredVideo = {
   youtubeUrl: 'https://www.youtube.com/watch?v=Jaq05s5-mjY',
 }
 
+/*
+  Live clips — self-hosted from /public/assets/video/. Each clip is a 1080p H.264
+  MP4 (with +faststart so it streams) plus a JPG poster of the same name.
+  preload="none" means nothing downloads until someone presses play.
+*/
+type LiveClip = {
+  title: string
+  subtitle: string
+  file: string
+}
+
+const liveClips: LiveClip[] = [
+  { title: 'Hold On', subtitle: 'Live at The Fleece, Bristol', file: 'hold-on-live-fleece' },
+  { title: 'Break the Chain', subtitle: 'Live at The Fleece, Bristol', file: 'break-the-chain-live-fleece' },
+  { title: 'No Miracle', subtitle: 'Live at The Fleece, Bristol', file: 'no-miracle-live-fleece' },
+  { title: 'From the Crowd', subtitle: 'Live at The Fleece, Bristol', file: 'live-fleece-crowd' },
+]
+
+/** Only one clip plays at a time — starting one pauses the rest. */
+function pauseOtherClips(playing: HTMLVideoElement) {
+  document.querySelectorAll<HTMLVideoElement>('#video video').forEach((video) => {
+    if (video !== playing) video.pause()
+  })
+}
+
 export default function Video() {
   return (
     <section id="video" className="py-16 md:py-28 px-6 bg-black">
@@ -56,6 +81,37 @@ export default function Video() {
             >
               Watch on YouTube <ExternalLink size={12} />
             </a>
+          </div>
+        </div>
+
+        {/* Live clips */}
+        <div className="mt-16 md:mt-24 max-w-5xl mx-auto">
+          <div className="text-center mb-8 md:mb-10">
+            <p className="text-xs tracking-ultra uppercase text-red-500 mb-3">Live Clips</p>
+            <h3 className="font-display text-3xl md:text-5xl text-white leading-none">
+              LIVE AT THE FLEECE
+            </h3>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            {liveClips.map((clip) => (
+              <figure key={clip.file} className="border border-white/5 bg-zinc-950/60">
+                <video
+                  src={`/assets/video/${clip.file}.mp4`}
+                  poster={`/assets/video/${clip.file}.jpg`}
+                  className="block w-full aspect-video bg-black object-cover"
+                  controls
+                  playsInline
+                  preload="none"
+                  onPlay={(e) => pauseOtherClips(e.currentTarget)}
+                  aria-label={`${clip.title} — ${clip.subtitle}`}
+                />
+                <figcaption className="px-4 py-3">
+                  <p className="text-white font-medium">{clip.title}</p>
+                  <p className="text-xs text-zinc-500 mt-0.5">{clip.subtitle}</p>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ const facts = [
 ]
 
 const lookingFor = [
-  'Hits hard and stays tight. We want metal weight with an alt rock feel, so dynamics matter as much as power.',
+  'Hits hard and stays tight. We play modern metalcore: heavy, but dynamics matter as much as power.',
   'Comfortable playing to a click and running backing tracks live.',
   'Based in or around Bristol, or happy to travel in for rehearsals and gigs.',
   'Has your own kit and a way to get it to shows.',
@@ -66,7 +66,7 @@ export default function DrumsApp() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(185,28,28,0.25)_0%,transparent_60%)]" />
 
           <div className="relative z-10 px-6 pb-20 pt-32 max-w-5xl mx-auto w-full text-center">
-            <p className="text-xs tracking-ultra uppercase text-red-500 mb-5">Desire X · Alt Rock · Bristol UK</p>
+            <p className="text-xs tracking-ultra uppercase text-red-500 mb-5">Desire X · Modern Metalcore · Bristol UK</p>
             <h1 className="font-display text-white leading-[0.9] text-[clamp(3.5rem,14vw,9.5rem)]">
               WE NEED
               <br />

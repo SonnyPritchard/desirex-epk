@@ -18,7 +18,7 @@ const BOOKING_EMAIL = 'booking@desirex.co.uk'
 const details: { label: string; value: string }[] = [
   { label: 'Line-up', value: 'Four-piece — vocals, guitar, guitar/bass, drums' },
   { label: 'Based', value: 'Bristol, UK' },
-  { label: 'Genre', value: 'Alternative rock — original material' },
+  { label: 'Genre', value: 'Modern metalcore — original material' },
 
   // ---- Fill these in and they appear on the page ----
   { label: 'Set length', value: '' }, // e.g. '30–45 minutes, flexible'

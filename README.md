@@ -1,6 +1,6 @@
 # Desire X — Electronic Press Kit
 
-Alt rock EPK site for Desire X (Bristol, UK). Vite + React + TypeScript + Tailwind CSS.
+Modern metalcore EPK site for Desire X (Bristol, UK). Vite + React + TypeScript + Tailwind CSS.
 
 ---
 

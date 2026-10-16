@@ -46,7 +46,7 @@ Currently using `/assets/artist-photo.jpg` (the Spotify press image). Replace wi
 The featured video is a YouTube embed: set `featuredVideo.videoId` from `youtube.com/watch?v=VIDEO_ID`.
 
 The live clips underneath are self-hosted in `/public/assets/video/` (an `.mp4` plus a `.jpg` poster
-with the same name) and listed in the `liveClips` array. To add one, convert it to web-friendly
+with the same name), listed in the `liveClips` array and shown in a swipeable carousel. To add one, convert it to web-friendly
 1080p H.264 first so it plays in every browser and stays small:
 
 ```bash
@@ -124,7 +124,7 @@ src/
     Hero.tsx        full-screen landing with CTAs
     About.tsx       bio + artist photo + stats
     Music.tsx       Spotify embed + 5 real tracks
-    Video.tsx       featured YouTube video + self-hosted live clips
+    Video.tsx       featured YouTube video + live clips carousel
     Press.tsx       press photo grid (hidden until photos are added)
     Shows.tsx       tour dates, auto-split into upcoming / past
     Booking.tsx     booking + technical details for promoters

@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, ExternalLink, Play } from 'lucide-react'
 
 const featuredVideo = {
+  label: 'New Release',
   title: 'The Edge',
-  subtitle: 'Official Music Video',
   videoId: 'Jaq05s5-mjY',
   youtubeUrl: 'https://www.youtube.com/watch?v=Jaq05s5-mjY',
 }
@@ -204,17 +204,19 @@ function LiveClipsCarousel() {
 
 export default function Video() {
   return (
-    <section id="video" className="py-16 md:py-28 px-6 bg-black">
+    <section id="video" className="pt-10 pb-16 md:pt-20 md:pb-28 px-6 bg-black">
       <div className="max-w-7xl mx-auto">
-        {/* Section header */}
-        <div className="text-center mb-10 md:mb-16">
-          <p className="text-xs tracking-ultra uppercase text-red-500 mb-4">Visual</p>
-          <h2 className="font-display text-5xl md:text-7xl text-white mb-4 leading-none">VIDEO</h2>
-          <div className="section-divider" />
+        {/* Section header — the featured video's title doubles as the heading */}
+        <div className="text-center mb-8 md:mb-12">
+          <p className="text-xs tracking-ultra uppercase text-red-500 mb-4">{featuredVideo.label}</p>
+          <h2 className="font-display text-5xl md:text-7xl text-white mb-4 leading-none uppercase">
+            {featuredVideo.title}
+          </h2>
+          <div className="section-divider" style={{ marginBottom: 0 }} />
         </div>
 
         {/* Featured video embed */}
-        <div className="mb-8 max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {featuredVideo.videoId ? (
             <div className="relative w-full aspect-video bg-black border border-white/5 overflow-hidden">
               <iframe
@@ -238,11 +240,7 @@ export default function Video() {
             </div>
           )}
 
-          <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <div>
-              <p className="text-white font-medium">{featuredVideo.title}</p>
-              <p className="text-xs text-zinc-500 mt-0.5">{featuredVideo.subtitle}</p>
-            </div>
+          <div className="mt-5 flex justify-center">
             <a
               href={featuredVideo.youtubeUrl}
               target="_blank"
@@ -255,7 +253,7 @@ export default function Video() {
         </div>
 
         {/* Live clips */}
-        <div className="mt-16 md:mt-24 max-w-5xl mx-auto">
+        <div className="mt-12 md:mt-20 max-w-5xl mx-auto">
           <div className="text-center mb-8 md:mb-10">
             <p className="text-xs tracking-ultra uppercase text-red-500 mb-3">Live Clips</p>
             <h3 className="font-display text-3xl md:text-5xl text-white leading-none">

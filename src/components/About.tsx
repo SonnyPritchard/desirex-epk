@@ -35,7 +35,7 @@ export default function About() {
 
             <div className="space-y-5 text-zinc-400 leading-relaxed font-light">
               <p>
-                Desire X is an alternative rock band from Bristol, UK. Formed in 2024 by
+                Desire X is a modern metalcore band from Bristol, UK. Formed in 2024 by
                 founding member, songwriter and vocalist Adam Castelete, and joined by
                 Mike Castelete (Guitar/Bass) and Sonny Pritchard (Guitar), the band now
                 perform as a full four-piece.

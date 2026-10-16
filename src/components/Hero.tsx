@@ -9,7 +9,7 @@ export default function Hero() {
     />
   )
 
-  const tagline = 'Alt Rock · Bristol UK · Follow the Journey'
+  const tagline = 'Modern Metalcore · Bristol UK · Follow the Journey'
 
   const ctas = (
     <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4">

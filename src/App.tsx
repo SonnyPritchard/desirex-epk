@@ -7,7 +7,6 @@ import Video from './components/Video'
 import Gallery from './components/Gallery'
 import Press from './components/Press'
 import Shows from './components/Shows'
-import Booking from './components/Booking'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
@@ -23,7 +22,6 @@ function App() {
         <Gallery />
         <Press />
         <Shows />
-        <Booking />
         <Contact />
       </main>
       <Footer />

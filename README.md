@@ -127,7 +127,6 @@ src/
     Video.tsx       featured YouTube video + live clips carousel
     Press.tsx       press photo grid (hidden until photos are added)
     Shows.tsx       tour dates, auto-split into upcoming / past
-    Booking.tsx     booking + technical details for promoters
     Contact.tsx     social links + inquiry form
     Footer.tsx      logo, nav links, social icons
   index.css         Tailwind base + global styles
